@@ -6,6 +6,7 @@ Player::Player(Game* game)
     : Object(game, sf::Vector2f(50, 50), Resources::texturePlayer, sf::Vector2i(2, 1))
 {
     mapInput();
+    state = START_MENU;
 }
 
 Player::~Player()
@@ -95,7 +96,7 @@ void Player::movingAnimation(){
 }
 
 void Player::inBattle(){
-
+    //BattleManager::resolveBattle(beasts, cityBeasts);
 }
 
 void Player::battleAnimation(){

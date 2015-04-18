@@ -7,6 +7,7 @@
 class Beasts
 {
 public:
+    Beasts();
     Beasts(int number, int strength, int resistance, int fear, int beauty, int health);
     ~Beasts();
     std::list<Beast> beasts;

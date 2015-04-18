@@ -1,5 +1,10 @@
 #include "Beasts.h"
 
+Beasts::Beasts()
+{
+    
+}
+
 Beasts::Beasts(int number, int strength, int resistance, int fear, int beauty, int health)
 {
     attributes.strength = strength;
