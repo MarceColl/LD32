@@ -13,6 +13,36 @@ public:
 
 protected:
     void mapInput();
+    enum GameState {
+        START_MENU,
+        SELECT_BEAST,
+        UPGRADE_BEAST,
+        CITIES_INITIALITZATION,
+        BEFORE_CITY_SELECTION,
+        CITY_SELECTION,
+        AFTER_CITY_SELECTION,
+        MOVING_ANIMATION,
+        IN_BATTLE,
+        BATTLE_ANIMATION,
+        BATTLE_RESULT,
+        GAME_RESULTS
+    };
+
+    GameState state;
+
+    void startMenu();
+    void selectBeast();
+    void upgradeBeast();
+    void citiesInitialitzation();
+    void beforeCitySelection();
+    void citySelection();
+    void afterCitySelection();
+    void movingAnimation();
+    void inBattle();
+    void battleAnimation();
+    void battleResult();
+    void gameResults();
+
 };
 
 #endif
