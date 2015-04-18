@@ -19,5 +19,20 @@ void Player::mapInput() {
 }
 
 void Player::update(float deltaTime) {
+    sf::Vector2f finalVector = position;
+    if (inputManager->getKeyState(sf::Keyboard::D)) {
+        finalVector += sf::Vector2f(30 * deltaTime, 0);
+    }
+    if (inputManager->getKeyState(sf::Keyboard::A)) {
+        finalVector += sf::Vector2f(-30 * deltaTime, 0);
+    }
+    if (inputManager->getKeyState(sf::Keyboard::W)) {
+        finalVector += sf::Vector2f(0, -30 * deltaTime);
+    }
+    if (inputManager->getKeyState(sf::Keyboard::S)) {
+        finalVector += sf::Vector2f(0, 30 * deltaTime);
+    }
 
+    
+    position = finalVector;
 }

@@ -62,9 +62,9 @@ void InputManager::parseEvents(sf::Event event) {
 }
 
 bool InputManager::getKeyState(sf::Keyboard::Key input_k) {
-
+    return keyboard_map[input_k];
 }
 
 bool InputManager::getMouseMapping(sf::Mouse::Button input_b) {
-
+    return mouse_map[input_b];
 }

@@ -13,7 +13,7 @@ LD32::~LD32()
 }
 
 void LD32::update(float deltaTime) {
-
+    pl.update(deltaTime);
 }
 
 void LD32::draw() {
@@ -21,5 +21,19 @@ void LD32::draw() {
 }
 
 void LD32::processEvents() {
+    sf::Event event;
 
+    // while there are pending events...
+    while (window.pollEvent(event))
+    {
+        // check the type of the event...
+        switch (event.type)
+        {
+        case sf::Event::Closed:
+            window.close();
+            break;
+        default:
+            inputManager.parseEvents(event);
+        }
+    }
 }
