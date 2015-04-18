@@ -17,6 +17,7 @@ public:
     void destroyNode(int n);
 
     bool isValidPath(std::vector<int> path);
+    std::vector<int> getNeighbours(int id);
 private:
     City cities[num_cities];
     bool adjacency_table[num_cities][num_cities];

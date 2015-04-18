@@ -50,3 +50,15 @@ bool Network::isValidPath(std::vector<int> path) {
     }
     return true;
 }
+
+std::vector<int> Network::getNeighbours(int id) {
+    std::vector<int> yoloswag;
+
+    for (int i = 0; i < num_cities; i++) {
+        if (adjacency_table[id][i] == true) {
+            yoloswag.push_back(i);
+        }
+    }
+
+    return yoloswag;
+}
