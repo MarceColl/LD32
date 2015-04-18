@@ -51,6 +51,7 @@ bool Network::isValidPath(std::vector<int> path) {
     return true;
 }
 
+// Tampoc tinc molt clar si funcionara, estava parlant de kung fu
 std::vector<int> Network::getNeighbours(int id) {
     std::vector<int> yoloswag;
 
