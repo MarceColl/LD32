@@ -17,7 +17,7 @@ public:
     void parseEvents(sf::Event event);
 
     bool getKeyState(sf::Keyboard::Key input_k);
-    bool getMouseMapping(sf::Mouse::Button input_b);
+    bool getMouseState(sf::Mouse::Button input_b);
 
     sf::Vector2i getMousePosition();
 
