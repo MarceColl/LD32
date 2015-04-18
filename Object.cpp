@@ -30,6 +30,14 @@ void Object::update(float deltaTime) {
 
 }
 
+sf::Vector2f Object::getPosition() {
+    return position;
+}
+
+sf::Vector2f Object::getSize() {
+    return size;
+}
+
 void Object::moveSpriteIndex(Dir d) {
     switch (d){
     case UP:

@@ -14,6 +14,8 @@ public:
     virtual void update(float deltaTime);
     virtual void mapInput();
     void draw();
+    sf::Vector2f getPosition();
+    sf::Vector2f getSize();
 protected:
     sf::Vector2f position;
     sf::Vector2f size;

@@ -5,7 +5,7 @@ LD32::LD32(int scrwidth, int scrheight, std::string title)
     gameState(MENU),
     pl(this)
 {
-    
+    view.setSize(sf::Vector2f(300, 200));
 }
 
 LD32::~LD32()
@@ -14,6 +14,9 @@ LD32::~LD32()
 
 void LD32::update(float deltaTime) {
     pl.update(deltaTime);
+    sf::Vector2f v = pl.getPosition() + pl.getSize() / 2.f;
+    view.setCenter(v);
+    window.setView(view);
 }
 
 void LD32::draw() {

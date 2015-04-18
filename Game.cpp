@@ -18,8 +18,6 @@ Game main loop
 void Game::run() {
     sf::Clock c;
     srand(time(0));
-    view.reset(sf::FloatRect(0, 0, 10, 10));
-    window.setView(view);
 
     while (window.isOpen()) {
         float deltaTime = c.restart().asSeconds();
