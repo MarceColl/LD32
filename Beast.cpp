@@ -3,12 +3,9 @@
 Beast::Beast(int health, Attributes *attr) :
     health(health), attributes(attr)
 {
-
 }
 
-Beast::~Beast() {
-
-}
+Beast::~Beast() {}
 
 int Beast::getStrength() {
     return attributes->strength;
