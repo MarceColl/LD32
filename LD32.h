@@ -2,6 +2,7 @@
 #define __LD32_LD32_H__
 
 #include "Game.h"
+#include "Player.h"
 
 enum GAMESTATE {
     MENU,
@@ -20,6 +21,7 @@ public:
     void update(float deltaTime);
 private:
     GAMESTATE gameState;
+    Player pl;
 };
 
 #endif

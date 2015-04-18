@@ -60,3 +60,11 @@ void InputManager::parseEvents(sf::Event event) {
         break;
     }
 }
+
+bool InputManager::getKeyState(sf::Keyboard::Key input_k) {
+
+}
+
+bool InputManager::getMouseMapping(sf::Mouse::Button input_b) {
+
+}

@@ -1,4 +1,5 @@
 #include "LD32.h"
+#include "Resources.h"
 
 int main()
 {

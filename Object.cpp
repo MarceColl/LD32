@@ -29,3 +29,5 @@ void Object::draw() {
 void Object::update(float deltaTime) {
 
 }
+
+void Object::mapInput() {}

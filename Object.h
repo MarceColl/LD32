@@ -10,6 +10,9 @@ public:
     Object(Game* g, sf::Vector2f size, sf::Texture& tex, sf::Vector2i spriteCount);
     ~Object();
 
+    virtual void update(float deltaTime);
+    virtual void mapInput();
+    void draw();
 protected:
     sf::Vector2f position;
     sf::Vector2f size;
@@ -17,11 +20,9 @@ protected:
     sf::Vector2i spriteCount;
     sf::Vector2i spriteNum;
     sf::Sprite sprite;
+
     InputManager* inputManager;
 
-    virtual void update(float deltaTime);
-    virtual void draw();
-    virtual void mapInput();
 private:
     Game* game;
 };
