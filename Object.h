@@ -17,13 +17,13 @@ protected:
     sf::Vector2i spriteCount;
     sf::Vector2i spriteNum;
     sf::Sprite sprite;
+    InputManager* inputManager;
 
     virtual void update(float deltaTime);
     virtual void draw();
-
+    virtual void mapInput();
 private:
     Game* game;
-    InputManager* inputManager;
 };
 
 #endif
