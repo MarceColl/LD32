@@ -11,5 +11,6 @@ enum Dir {
 };
 
 sf::Vector2f normalizeWithLength(sf::Vector2f vec, float length);
+sf::Vector2f limitVector2f(sf::Vector2f vec, sf::Vector2f limits);
 
 #endif

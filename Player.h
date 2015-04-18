@@ -12,6 +12,8 @@ public:
     void update(float deltaTime);
 
 protected:
+    sf::Vector2f speed;
+    const sf::Vector2f acceleration;
     void mapInput();
 };
 
