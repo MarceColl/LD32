@@ -51,15 +51,29 @@ bool Network::isValidPath(std::vector<int> path) {
     return true;
 }
 
+City* Network::getCity(int id) {
+    return &cities[id];
+}
+
 // Tampoc tinc molt clar si funcionara, estava parlant de kung fu
 std::vector<int> Network::getNeighbours(int id) {
-    std::vector<int> neighbors;
+    std::vector<int> neighbours;
 
     for (int i = 0; i < num_cities; i++) {
         if (adjacency_table[id][i] == true) {
-            neighbors.push_back(i);
+            neighbours.push_back(i);
         }
     }
 
-    return neighbors;
+    return neighbours;
+}
+
+int Network::getCityByCoords(sf::Vector2f coords) {
+    for (int i = 0; i < num_cities; i++) {
+        if (cities[i].isInside(coords)) {
+            return i;
+        }
+    }
+
+    return -1;
 }

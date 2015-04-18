@@ -19,6 +19,8 @@ public:
 
     bool isValidPath(std::vector<int> path);
     std::vector<int> getNeighbours(int id);
+    City* getCity(int id);
+    int getCityByCoords(sf::Vector2f coords);
 private:
     City cities[num_cities];
     bool adjacency_table[num_cities][num_cities];

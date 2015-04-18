@@ -21,3 +21,13 @@ sf::Vector2f limitVector2f(sf::Vector2f vec, sf::Vector2f limits) {
         vec.y = -limits.y;
     return vec;
 }
+
+bool isPointInsideRectangle(sf::Vector2f vec, sf::FloatRect rect) {
+    if (vec.x >= rect.left &&
+        vec.x <= rect.left + rect.width &&
+        vec.y >= rect.top &&
+        vec.y <= rect.top + rect.height) {
+        return true;
+    }
+    return false;
+}
