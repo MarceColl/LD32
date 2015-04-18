@@ -6,3 +6,4 @@ SFML-2.2
 a.out
 makefile
 *.o
+*.swp
