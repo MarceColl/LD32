@@ -2,6 +2,7 @@
 #define __LD32_PLAYER_H__
 
 #include "Object.h"
+#include "BattleManager.h"
 
 class Player : public Object
 {
