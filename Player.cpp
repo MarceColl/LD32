@@ -62,64 +62,50 @@ void Player::update(float deltaTime) {
 
 }
 
-
 void Player::startMenu(){
 
 }
-
 
 void Player::selectBeast(){
 
 }
 
-
 void Player::upgradeBeast(){
 
 }
-
 
 void Player::citiesInitialitzation(){
 
 }
 
-
 void Player::beforeCitySelection(){
 
 }
-
 
 void Player::citySelection(){
 
 }
 
-
 void Player::afterCitySelection(){
 
 }
-
 
 void Player::movingAnimation(){
 
 }
 
-
 void Player::inBattle(){
 
 }
-
 
 void Player::battleAnimation(){
 
 }
 
-
 void Player::battleResult(){
 
 }
 
-
 void Player::gameResults(){
 
 }
-
-
