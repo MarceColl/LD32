@@ -13,18 +13,16 @@ public:
     
     Beast(int health, Attributes *attr);
     ~Beast();
+
     int getStrength();
     int getResistance();
     int getFear();
     int getHealth();
     int getBeauty();
 
-
-
 protected:
     int health;
     Attributes *attributes;
-
 };
 
 #endif

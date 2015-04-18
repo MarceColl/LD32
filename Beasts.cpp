@@ -12,12 +12,11 @@ Beasts::Beasts(int number, int strength, int resistance, int fear, int beauty, i
     }
 }
 
-Beasts::~Beasts() {
-    
-}
+Beasts::~Beasts() {}
 
 /**
  * This is a comment to comment the code
+ de chilling
  */
 Beast::Attributes Beasts::getAttributes() {
     return attributes;
