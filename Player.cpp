@@ -17,6 +17,7 @@ void Player::mapInput() {
     inputManager->addKeyboardMapping(sf::Keyboard::A);
     inputManager->addKeyboardMapping(sf::Keyboard::S);
     inputManager->addKeyboardMapping(sf::Keyboard::D);
+    inputManager->addMouseMapping(sf::Mouse::XButton1);
 }
 
 void Player::update(float deltaTime) {
@@ -36,4 +37,8 @@ void Player::update(float deltaTime) {
     }
 
     position = normalizeWithLength(finalVector, 30.0f);
+
+    if (inputManager->getMouseState(sf::Mouse::Button::Left)) {
+        position = sf::Vector2f(inputManager->getMousePosition().x, inputManager->getMousePosition().y);
+    }
 }

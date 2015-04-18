@@ -65,6 +65,6 @@ bool InputManager::getKeyState(sf::Keyboard::Key input_k) {
     return keyboard_map[input_k];
 }
 
-bool InputManager::getMouseMapping(sf::Mouse::Button input_b) {
+bool InputManager::getMouseState(sf::Mouse::Button input_b) {
     return mouse_map[input_b];
 }
