@@ -20,7 +20,7 @@ public:
 protected:
     InputManager        inputManager;
     sf::RenderWindow    window;
-	//sf::View			view;
+	sf::View			view;
 private:
     void render();
 };
