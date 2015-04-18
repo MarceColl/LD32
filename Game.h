@@ -1,7 +1,7 @@
 #ifndef __SFMLS_GAME_H__
 #define __SFMLS_GAME_H__
 
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include "InputManager.h"
 
 class Game

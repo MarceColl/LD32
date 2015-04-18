@@ -1,7 +1,7 @@
 #ifndef __SFMS_INPUTMANAGER_H_
 #define __SFMS_INPUTMANAGER_H_
 
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <map>
 
 class InputManager

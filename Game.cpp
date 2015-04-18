@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <string>
 #include "Resources.h"
-#include <SFML\System.hpp>
+#include <SFML/System.hpp>
 
 Game::Game(int scrwidth, int scrheight, std::string title, int style) :
     window(sf::VideoMode(scrwidth, scrheight), title, style),

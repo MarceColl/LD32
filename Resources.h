@@ -1,7 +1,7 @@
 #ifndef __SFMLS_RESOURCES_H__
 #define __SFMLS_RESOURCES_H__
 
-#include <SFML\Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 class Resources {
 public:
