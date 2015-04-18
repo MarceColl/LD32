@@ -9,19 +9,17 @@ InputManager::~InputManager() {
 }
 
 void InputManager::initializeInputMapping() {
-    // You can initialize mappings here too
-    // addMapping(sf::Keyboard::K);
     addKeyboardMapping(sf::Keyboard::K);
 }
 
 void InputManager::addKeyboardMapping(sf::Keyboard::Key input_k) {
-    if (keyboard_map.count(input_k) == 0) { // Key mapping doesnt already exist
+    if (keyboard_map.count(input_k) == 0) {
         keyboard_map[input_k] = false;
     }
 }
 
 void InputManager::addMouseMapping(sf::Mouse::Button input_b) {
-    if (mouse_map.count(input_b) == 0) { // Mouse mapping doesnt already exist
+    if (mouse_map.count(input_b) == 0) {
         mouse_map[input_b] = false;
     }
 }

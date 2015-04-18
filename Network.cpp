@@ -38,8 +38,8 @@ bool Network::isValidPath(std::vector<int> path) {
     memcpy(adj_table, adjacency_table, sizeof(adjacency_table));
 
     int previous = path[0];
-    std::vector<int>::iterator it = path.begin; it++;
-    for (; it != path.end; it++) {
+    std::vector<int>::iterator it = path.begin(); it++;
+    for (; it != path.end(); it++) {
         if (adj_table[*it][previous] == true) {
             changePath(*it, previous, false);
             previous = *it;
