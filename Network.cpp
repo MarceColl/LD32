@@ -53,13 +53,13 @@ bool Network::isValidPath(std::vector<int> path) {
 
 // Tampoc tinc molt clar si funcionara, estava parlant de kung fu
 std::vector<int> Network::getNeighbours(int id) {
-    std::vector<int> yoloswag;
+    std::vector<int> neighbors;
 
     for (int i = 0; i < num_cities; i++) {
         if (adjacency_table[id][i] == true) {
-            yoloswag.push_back(i);
+            neighbors.push_back(i);
         }
     }
 
-    return yoloswag;
+    return neighbors;
 }
