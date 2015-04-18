@@ -2,6 +2,7 @@
 #define __SFMLS_OBJECT_H__
 
 #include "InputManager.h"
+#include "Utils.h"
 
 class Game;
 class Object
@@ -22,6 +23,7 @@ protected:
     sf::Sprite sprite;
 
     InputManager* inputManager;
+    void moveSpriteIndex(Dir d);
 
 private:
     Game* game;

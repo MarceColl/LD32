@@ -3,6 +3,13 @@
 
 #include <SFML/Graphics.hpp>
 
+enum Dir {
+    UP,
+    DOWN,
+    RIGHT,
+    LEFT
+};
+
 sf::Vector2f normalizeWithLength(sf::Vector2f vec, float length);
 
 #endif

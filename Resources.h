@@ -7,6 +7,7 @@ class Resources {
 public:
     static void load();
     static sf::Texture texturePlayer;
+    static sf::Texture textureMap;
 };
 
 #endif
