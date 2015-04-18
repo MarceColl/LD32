@@ -1,5 +1,5 @@
 #include "Network.h"
-
+#include <stdio.h>
 #include<vector>
 
 Network::Network() {
