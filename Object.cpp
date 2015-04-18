@@ -30,4 +30,41 @@ void Object::update(float deltaTime) {
 
 }
 
+void Object::moveSpriteIndex(Dir d) {
+    switch (d){
+    case UP:
+        if (spriteNum.y == 0) {
+            spriteNum.y = spriteCount.y - 1;
+        }
+        else {
+            spriteNum.y -= 1;
+        }
+        break;
+    case DOWN:
+        if (spriteNum.y == spriteCount.y - 1) {
+            spriteNum.y = 0;
+        }
+        else {
+            spriteNum.y += 1;
+        }
+        break;
+    case RIGHT:
+        if (spriteNum.x == spriteCount.x - 1) {
+            spriteNum.x = 0;
+        }
+        else {
+            spriteNum.x += 1;
+        }
+        break;
+    case LEFT:
+        if (spriteNum.x == 0) {
+            spriteNum.x = spriteCount.y - 1;
+        }
+        else {
+            spriteNum.x -= 1;
+        }
+        break;
+    }
+}
+
 void Object::mapInput() {}

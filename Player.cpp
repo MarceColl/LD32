@@ -3,7 +3,7 @@
 #include "Utils.h"
 
 Player::Player(Game* game)
-    : Object(game, sf::Vector2f(50, 50), Resources::texturePlayer, sf::Vector2i(1, 1))
+    : Object(game, sf::Vector2f(50, 50), Resources::texturePlayer, sf::Vector2i(2, 1))
 {
     mapInput();
 }
@@ -35,6 +35,8 @@ void Player::update(float deltaTime) {
     if (inputManager->getKeyState(sf::Keyboard::S)) {
         finalVector += sf::Vector2f(0, 30 * deltaTime);
     }
+
+    moveSpriteIndex(RIGHT);
 
     position = normalizeWithLength(finalVector, 30.0f);
 
