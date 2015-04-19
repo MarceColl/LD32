@@ -92,7 +92,7 @@ void City::drawPopup() {
 void City::drawBattlePopup(int numCityBeasts, int numPlayerBeasts, const Beast::Attributes& plattr) {
     sf::RectangleShape rectangle(sf::Vector2f(200, 100));
 
-    sf::Vector2f popupPos = limitToScreen(position - sf::Vector2f(-150, 70), sf::Vector2f(430, 100));
+    sf::Vector2f popupPos = limitToScreen(position - sf::Vector2f(-150, 70), sf::Vector2f(200, 250));
 
     rectangle.setPosition(popupPos);
     rectangle.setFillColor(sf::Color(0, 0, 0, 200));
@@ -131,7 +131,7 @@ void City::drawBattlePopup(int numCityBeasts, int numPlayerBeasts, const Beast::
     beasts.draw();
 
     // PLAYER POPUP
-    popupPos = limitToScreen(position - sf::Vector2f(-150, -50), sf::Vector2f(200, 100));
+    popupPos = limitToScreen(position - sf::Vector2f(-150, -60), sf::Vector2f(200, 100));
 
     rectangle.setPosition(popupPos);
     rectangle.setFillColor(sf::Color(0, 0, 0, 200));

@@ -77,11 +77,12 @@ void Player::draw() {
     if (state == UPGRADE_BEAST) {
         drawUpgradeMenu();
     }
-    else if (state == BATTLE_ANIMATION) {
-        network.getCity(path.front())->drawBattlePopup(numCityBeasts, numBeasts, beasts.getAttributes());
-    }
 
     beasts.draw();
+
+    if (state == BATTLE_ANIMATION) {
+        network.getCity(path.front())->drawBattlePopup(numCityBeasts, numBeasts, beasts.getAttributes());
+    }
 }
 
 void Player::drawUpgradeMenu() {
@@ -137,7 +138,7 @@ void Player::selectBeast(float deltaTime) {
 }
 
 void Player::upgradeBeast(float deltaTime) {
-    state = CITIES_INITIALITZATION;
+    //state = CITIES_INITIALITZATION;
 }
 
 void Player::citiesInitialitzation(float deltaTime) {
@@ -291,4 +292,5 @@ void Player::battleResult(float deltaTime) {
 
 void Player::roundResult(float deltaTime) {
     upgradePoints += (pathInitialLength - path.size())*10;
+    state = UPGRADE_BEAST;
 }
