@@ -1,6 +1,7 @@
 #include "City.h"
 #include "Resources.h"
 #include "LD32.h"
+#include <string.h>
 
 City::City()
     : Object()
@@ -11,8 +12,8 @@ City::City(Game* g, int id, Beasts beasts)
     : Object(g, sf::Vector2f(200, 200), Resources::textureCity, sf::Vector2i(1, 1)),
     beasts(beasts)
 {
-    float y = id % 2 == 1 ? 750 - 100 * id : 100 * id;
-    position = sf::Vector2f(200 * id, y);
+    float y = id % 2 == 1 ? 750 - 50 * id : 50 * id;
+    position = sf::Vector2f(100 * id, y);
     highlighted = false;
     highlightedSpecial = false;
     mouseOver = false;
@@ -42,10 +43,16 @@ void City::draw() {
 
 void City::drawPopup() {
     if (mouseOver) {
+        sf::Text text;
+        text.setFont(Resources::font);
+        text.setString(std::to_string(c_id));
+        text.setCharacterSize(24);
+        text.setPosition(position - sf::Vector2f(-170, 30));
         sf::RectangleShape rectangle(sf::Vector2f(200, 100));
         rectangle.setPosition(position - sf::Vector2f(-150, 50));
         rectangle.setFillColor(sf::Color(0, 0, 0, 170));
         game->getWindow()->draw(rectangle);
+        game->getWindow()->draw(text);
     }
 }
 

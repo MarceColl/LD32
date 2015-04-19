@@ -3,7 +3,7 @@
 
 int main()
 {
-    LD32 game(1200, 800, "LD32");
+    LD32 game(1500, 1000, "LD32");
     game.run();
     return 0;
 }
