@@ -38,6 +38,10 @@ void Network::draw() {
     for (std::vector<City>::iterator it = cities.begin(); it != cities.end(); it++) {
         it->draw();
     }
+
+    for (std::vector<City>::iterator it = cities.begin(); it != cities.end(); it++) {
+        it->drawPopup();
+    }
 }
 
 void Network::update() {

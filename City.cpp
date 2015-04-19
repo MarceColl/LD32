@@ -1,5 +1,6 @@
 #include "City.h"
 #include "Resources.h"
+#include "LD32.h"
 
 City::City()
     : Object()
@@ -37,6 +38,15 @@ void City::draw() {
     }
 
     Object::draw();
+}
+
+void City::drawPopup() {
+    if (mouseOver) {
+        sf::RectangleShape rectangle(sf::Vector2f(200, 100));
+        rectangle.setPosition(position - sf::Vector2f(-150, 50));
+        rectangle.setFillColor(sf::Color(0, 0, 0, 170));
+        game->getWindow()->draw(rectangle);
+    }
 }
 
 void City::update() {

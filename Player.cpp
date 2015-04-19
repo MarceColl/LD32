@@ -135,9 +135,8 @@ void Player::citySelection(float deltaTime) {
         if (inNeighbours) {
             network.destroyNode(path.back());
             path.push_back(result);
+            state = AFTER_CITY_SELECTION;
         }
-
-        state = AFTER_CITY_SELECTION;
     }
 }
 

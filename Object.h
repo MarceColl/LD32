@@ -28,8 +28,6 @@ protected:
 
     InputManager* inputManager;
     void moveSpriteIndex(Dir d);
-
-private:
     Game* game;
 };
 

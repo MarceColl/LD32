@@ -19,6 +19,7 @@ public:
     bool isInside(sf::Vector2f coords);
     void draw();
     void update();
+    void drawPopup();
 
     int getId();
 
@@ -29,6 +30,8 @@ protected:
     bool highlighted;
     bool highlightedSpecial;
     bool mouseOver;
+
+    
 
     int c_id;
 };
