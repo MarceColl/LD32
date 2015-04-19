@@ -34,9 +34,11 @@ protected:
         BATTLE_RESULT,
         ROUND_RESULT
     };
-    
+
     Network network;
     std::vector<Upgrade> upgrades;
+
+    int hoverUpgrade;
 
     /**
      * Path selected by the user
