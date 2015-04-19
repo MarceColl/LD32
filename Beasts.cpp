@@ -8,7 +8,7 @@ Beasts::Beasts()
 }
 
 Beasts::Beasts(Game *g, Beast::Attributes attr) :
-    Object(g, sf::Vector2f(40, 47), Resources::textureSheep, sf::Vector2i(1, 1)),
+    Object(g, sf::Vector2f(60, 70), Resources::textureSheep, sf::Vector2i(1, 1)),
     attributes(attr)
 {
     std::cout << attr.number << std::endl;

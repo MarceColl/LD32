@@ -56,6 +56,10 @@ protected:
 
     std::vector<int> currentNeighbours;
 
+    sf::Vector2f beastsInitialPos;
+    sf::Vector2f beastsFinalPos;
+    sf::Vector2f speed;
+
     Beasts beasts;
     Beasts cityBeasts;
     int numBeasts;

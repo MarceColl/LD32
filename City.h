@@ -8,7 +8,7 @@ class City : public Object
 {
 public:
     City(); 
-    City(Game* g, int id, Beasts beasts);
+    City(Game* g, int id, std::string name, Beasts beasts);
     ~City();
 
     void highlight();
@@ -32,6 +32,7 @@ protected:
     bool highlightedSpecial;
     bool mouseOver;
     bool destroyed;
+    std::string name;
 
     int c_id;
 };

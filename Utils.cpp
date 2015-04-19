@@ -22,6 +22,18 @@ sf::Vector2f limitVector2f(sf::Vector2f vec, sf::Vector2f limits) {
     return vec;
 }
 
+sf::Vector2f limitToScreen(sf::Vector2f vec, sf::Vector2f size) {
+    if (vec.x > 1500 - size.x)
+        vec.x = 1500 - size.x;
+    else if (vec.x < 0)
+        vec.x = 0;
+    if (vec.y > 1000 - size.y)
+        vec.y = 1000 - size.y;
+    else if (vec.y < 0)
+        vec.y = 0;
+    return vec;
+}
+
 bool isPointInsideRectangle(sf::Vector2f vec, sf::FloatRect rect) {
     if (vec.x >= rect.left &&
         vec.x <= rect.left + rect.width &&

@@ -93,6 +93,8 @@ void Player::draw() {
     text.setPosition(sf::Vector2f(50, 100));
 
     game->getWindow()->draw(text);
+
+    beasts.draw();
 }
 
 void Player::drawUpgradeMenu() {
@@ -143,6 +145,8 @@ void Player::selectBeast(float deltaTime) {
     upgrades.push_back(Upgrade(game, "Stamina", Beast::Attributes(1, 0, 0, 0, 0, 0), Resources::textureSheep));
     
     state = UPGRADE_BEAST;
+
+    beasts.setPosition(sf::Vector2f(-200, -200));
 }
 
 void Player::upgradeBeast(float deltaTime) {
@@ -178,6 +182,7 @@ void Player::beforeCitySelection(float deltaTime) {
 
     if (currentNeighbours.size() <= 0) {
         pathInitialLength = path.size();
+        beasts.setPosition(network.getCity(path.front())->getCenteredPosition());
         state = MOVE_NEXT_CITY;
         return;
     }
@@ -231,11 +236,25 @@ void Player::moveNextCity(float deltaTime) {
     numCityBeasts = cityBeasts.beasts.size();
     numBeasts = beasts.beasts.size();
 
+    beastsInitialPos = beasts.getPosition();
+    beastsFinalPos = network.getCity(path.front())->getCenteredPosition();
+
+    speed = (beastsFinalPos - beastsInitialPos) / 2.f;
+
     state = MOVING_ANIMATION;
 }
 
 void Player::movingAnimation(float deltaTime) {
-    state = IN_BATTLE;
+    beasts.setPosition(beasts.getPosition() + speed*deltaTime);
+    bool finished = false;
+
+    if (speed.x <= 0 && beasts.getPosition().x <= beastsFinalPos.x)
+        finished = true;
+    if (speed.x >= 0 && beasts.getPosition().x >= beastsFinalPos.x)
+        finished = true;
+
+    if (finished)
+        state = IN_BATTLE;
 }
 
 void Player::inBattle(float deltaTime) {
