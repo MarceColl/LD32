@@ -20,6 +20,7 @@ public:
     void draw();
     void update();
     void drawPopup();
+    void drawBattlePopup(int numCityBeasts, int numPlayerBeasts, const Beast::Attributes& plattr);
     void destroy();
 
     int getId();
