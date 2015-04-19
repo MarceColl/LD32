@@ -1,11 +1,9 @@
 #include "City.h"
 #include "Resources.h"
 
-City::City(Game* g)
-    : Object(g, sf::Vector2f(150, 150), Resources::texturePlayer, sf::Vector2i(2, 1))
+City::City()
+    : Object(NULL, sf::Vector2f(150, 150), Resources::texturePlayer, sf::Vector2i(2, 1))
 {
-    bool highlighted = false;
-    bool highlightedSpecial = false;
 }
 
 City::City(Game* g, int id) 

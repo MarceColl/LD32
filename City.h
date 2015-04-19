@@ -6,7 +6,7 @@
 class City : public Object
 {
 public:
-    City(Game* g); 
+    City(); 
     City(Game* g, int id);
     ~City();
 

@@ -1,14 +1,17 @@
 #include"Network.h"
 #include<string.h>
 #include<vector>
+#include "Game.h"
 
-Network::Network() {
+Network::Network(Game* g) 
+    : game(g)
+{
     init();
 }
 
 void Network::init() {
     for (int i = 0; i < num_cities; i++) {
-        cities[i] = City(i);
+        cities[i] = City(game, i);
         for (int j = 0; j < num_cities; j++) {
             adjacency_table[i][j] = false;
         }
@@ -28,8 +31,8 @@ void Network::destroyNode(int n) {
 }
 
 void Network::changePath(int a, int b, bool value) {
-    adjacency_table[a][b] = b; 
-    adjacency_table[b][a] = b;
+    adjacency_table[a][b] = value; 
+    adjacency_table[b][a] = value;
 }
 
 // Crec que hauria de funcionar, no n'estic gens segur per aixo haha

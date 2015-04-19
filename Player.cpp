@@ -1,9 +1,11 @@
 #include "Player.h"
 #include "Resources.h"
 #include "Utils.h"
+#include "Network.h"
 
 Player::Player(Game* game)
-    : Object(game, sf::Vector2f(50, 50), Resources::texturePlayer, sf::Vector2i(2, 1))
+    : Object(game, sf::Vector2f(50, 50), Resources::texturePlayer, sf::Vector2i(2, 1)),
+    network(game)
 {
     mapInput();
 }
@@ -56,7 +58,6 @@ void Player::update(float deltaTime) {
         gameResults();
         break;
     default:
-
         break;
     }
 

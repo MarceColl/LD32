@@ -9,7 +9,7 @@ const int num_cities = 5;
 class Network
 {
 public:
-    Network();
+    Network(Game* g);
     ~Network();
 
     void init();
@@ -26,6 +26,7 @@ private:
     bool adjacency_table[num_cities][num_cities];
 
     void changePath(int a, int b, bool value);
+    Game* game;
 };
 
 #endif
