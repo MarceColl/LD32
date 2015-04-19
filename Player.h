@@ -2,6 +2,7 @@
 #define __LD32_PLAYER_H__
 
 #include "Object.h"
+#include "BattleManager.h"
 #include "Network.h"
 
 class Player : public Object
@@ -28,6 +29,9 @@ protected:
         BATTLE_RESULT,
         GAME_RESULTS
     };
+
+    Network network;
+    Beasts beasts;
 
     GameState state;
 

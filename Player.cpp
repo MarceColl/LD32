@@ -8,6 +8,7 @@ Player::Player(Game* game)
     network(game)
 {
     mapInput();
+    state = START_MENU;
 }
 
 Player::~Player()
@@ -96,7 +97,7 @@ void Player::movingAnimation(){
 }
 
 void Player::inBattle(){
-
+    //BattleManager::resolveBattle(beasts, cityBeasts);
 }
 
 void Player::battleAnimation(){
