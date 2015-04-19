@@ -33,10 +33,10 @@ void City::draw() {
         sprite.setColor(sf::Color(130,130,130));
     }
     else if (highlighted) {
-        sprite.setColor(sf::Color::Blue);
+        sprite.setColor(sf::Color(0xFF, 0x99, 0x00));
     }
     else if (highlightedSpecial) {
-        sprite.setColor(sf::Color::Green);
+        sprite.setColor(sf::Color(0x55, 0x33, 0x00));
     }
     else {
         sprite.setColor(sf::Color::White);
