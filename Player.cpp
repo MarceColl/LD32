@@ -88,16 +88,18 @@ void Player::citiesInitialitzation(float deltaTime) {
     network.addPath(2,4);
     network.addPath(2,5);
     network.addPath(4,5);
-    
-    lastSelectedCity = 0;
 
+    path.clear();
+    path.push_back(0);
+    
     state = BEFORE_CITY_SELECTION;
 }
 
 void Player::beforeCitySelection(float deltaTime) {
-    currentNeighbours = network.getNeighbours(lastSelectedCity);
+    currentNeighbours = network.getNeighbours(path.back());
 
     if (currentNeighbours.size() <= 0) {
+        pathInitialLength = path.size();
         state = MOVE_NEXT_CITY;
         return;
     }
@@ -115,7 +117,7 @@ void Player::beforeCitySelection(float deltaTime) {
 
 void Player::citySelection(float deltaTime) {
     //Waiting for events to occur that will change the state
-    //They will also udpate the lastSelectedCity propierty
+    //They will also udpate the path property
 }
 
 void Player::afterCitySelection(float deltaTime) {
@@ -127,14 +129,14 @@ void Player::afterCitySelection(float deltaTime) {
     }
 
     //Highlight special selected city
-    network.getCity(lastSelectedCity)->highlightSpecial();
+    network.getCity(path[path.size()-2])->highlightSpecial();
 
     state = BEFORE_CITY_SELECTION;
 }
 
 void Player::moveNextCity(float deltaTime) {
-    numCityBeasts = 100;
-    cityBeasts = Beasts(numCityBeasts, 100, 100, 100, 100, 100);
+    cityBeasts = *network.getCity(path.front())->getBeasts();
+    numCityBeasts = cityBeasts.beasts.size();
 }
 
 void Player::movingAnimation(float deltaTime) {
@@ -171,10 +173,11 @@ void Player::battleResult(float deltaTime) {
     if(beasts.beasts.size() <= 0) {
         state = ROUND_RESULT;
     } else {
+        path.erase(path.begin());
         state = MOVE_NEXT_CITY;
     }
 }
 
 void Player::roundResult(float deltaTime) {
-
+    upgradePoints += (pathInitialLength - path.size())*10;
 }

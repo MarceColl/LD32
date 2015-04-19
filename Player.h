@@ -33,10 +33,17 @@ protected:
     };
     
     Network network;
+
     /**
-     * When building the route, this is the last selected city
+     * Path selected by the user
      */
-    int lastSelectedCity;
+    std::vector<int> path;
+    int pathInitialLength;
+
+    /**
+     * Player upgrade points 
+     */
+    int upgradePoints;
 
     /**
      * When attacking, next city to attack, or -1, if all cities have been killed

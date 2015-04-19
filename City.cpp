@@ -6,8 +6,9 @@ City::City()
 {
 }
 
-City::City(Game* g, int id) 
-    : Object(g, sf::Vector2f(150, 150), Resources::texturePlayer, sf::Vector2i(2, 1))
+City::City(Game* g, int id, Beasts beasts) 
+    : Object(g, sf::Vector2f(150, 150), Resources::texturePlayer, sf::Vector2i(2, 1)),
+      beasts(beasts)
 {
     bool highlighted = false;
     bool highlightedSpecial = false;
@@ -36,4 +37,8 @@ void City::unHighlightSpecial() {
 
 bool City::isInside(sf::Vector2f coords) {
     return isPointInsideRectangle(coords, sf::FloatRect(position, size));
+}
+
+Beasts* City::getBeasts() {
+    return &beasts;
 }

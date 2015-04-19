@@ -2,6 +2,7 @@
 #include<string.h>
 #include<vector>
 #include "Game.h"
+#include "Beasts.h"
 
 Network::Network(Game* g) 
     : game(g)
@@ -11,8 +12,9 @@ Network::Network(Game* g)
 }
 
 void Network::init() {
+    Beasts beasts = Beasts(100, 100, 100, 100, 100, 100);
     for (int i = 0; i < num_cities; i++) {
-        cities[i] = City(game, i);
+        cities[i] = City(game, i, beasts);
         for (int j = 0; j < num_cities; j++) {
             adjacency_table[i][j] = false;
         }

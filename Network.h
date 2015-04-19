@@ -2,6 +2,7 @@
 #define __LD32_NETWORK_H__
 
 #include "City.h"
+#include "Beasts.h"
 #include <vector>
 
 const int num_cities = 5;
