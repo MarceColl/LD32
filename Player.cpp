@@ -221,10 +221,13 @@ void Player::battleAnimation(float deltaTime) {
 }
 
 void Player::battleResult(float deltaTime) {
+    if (cityBeasts.beasts.size() <= 0) {
+        network.getCity(path.front())->destroy();
+    }
+
     if(beasts.beasts.size() <= 0) {
         state = ROUND_RESULT;
     } else {
-        network.getCity(path.front())->destroy();
         path.erase(path.begin());
         if (path.size() > 0) {
             state = MOVE_NEXT_CITY;
