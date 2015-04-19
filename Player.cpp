@@ -216,13 +216,13 @@ void Player::drawUpgradeMenu() {
     }
 
     currentPos = posRel + sf::Vector2f(30, 400);
-    step = sf::Vector2f(0, 80);
+    step = sf::Vector2f(0, 45);
     for(int i = 0; i < upgrades.size(); i++) {
         upgrades[i].setPosition(currentPos);
         upgrades[i].draw();
         currentPos += step;
-        if (i%4 == 0) {
-            currentPos -= 4.f*step + sf::Vector2f(100, 0);
+        if (i%4 == 3) {
+            currentPos -= 4.f*step + sf::Vector2f(-240, 0);
         }
     }
 
@@ -237,7 +237,12 @@ void Player::selectBeast(float deltaTime) {
 
     beasts = Beasts(game, attr);
 
-    upgrades.push_back(Upgrade(game, "Stamina", Beast::Attributes(1, 0, 1, 0, 0, 0), Resources::textureSheep));
+    upgrades.push_back(Upgrade(game, "Stamina", Beast::Attributes(1, 0, 1, 0, 0, 0), Resources::textureBoxGloves));
+    upgrades.push_back(Upgrade(game, "Stamina", Beast::Attributes(1, 0, 1, 0, 0, 0), Resources::textureCarpet));
+    upgrades.push_back(Upgrade(game, "Stamina", Beast::Attributes(1, 0, 1, 0, 0, 0), Resources::textureJustinBMask));
+    upgrades.push_back(Upgrade(game, "Stamina", Beast::Attributes(1, 0, 1, 0, 0, 0), Resources::textureNeedle));
+    upgrades.push_back(Upgrade(game, "Stamina", Beast::Attributes(1, 0, 1, 0, 0, 0), Resources::textureResistor));
+    upgrades.push_back(Upgrade(game, "Stamina", Beast::Attributes(1, 0, 1, 0, 0, 0), Resources::textureRock));
     
     state = UPGRADE_BEAST;
 
@@ -245,7 +250,7 @@ void Player::selectBeast(float deltaTime) {
 }
 
 void Player::upgradeBeast(float deltaTime) {
-    state = CITIES_INITIALITZATION;
+    //state = CITIES_INITIALITZATION;
 }
 
 void Player::citiesInitialitzation(float deltaTime) {
