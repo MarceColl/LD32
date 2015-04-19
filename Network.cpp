@@ -29,7 +29,7 @@ void Network::init() {
 
     std::string cityNames[num_cities] = {
         "Crapstone",
-        "Ugley",
+        "Ugley-doo",
         "Humansville",
         "Lickfork",
         "Beaver Cataclysm",
