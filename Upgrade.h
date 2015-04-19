@@ -8,7 +8,7 @@
 class Upgrade : public Object
 {
 public:
-    Upgrade(Game *g, sf::Vector2f pos, std::string name, Beast::Attributes bonus);
+    Upgrade(Game *g, std::string name, Beast::Attributes bonus, sf::Texture& tex);
     ~Upgrade();
 
     std::string getName();

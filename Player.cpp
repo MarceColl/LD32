@@ -3,6 +3,7 @@
 #include "Utils.h"
 #include "Network.h"
 #include <cmath>
+#include "Upgrade.h"
 #include "LD32.h"
 
 Player::Player(Game* game)
@@ -99,8 +100,9 @@ void Player::selectBeast(float deltaTime) {
     Beast::Attributes attr(10, 10, 10, 10, 10, 10);
 
     beasts = Beasts(game, attr);
-    //Event function
-    //Should initialize the array of upgrades
+
+    upgrades.push_back(Upgrade(game, "Stamina", Beast::Attributes(1, 0, 0, 0, 0, 0), Resources::textureSheep));
+    
     state = UPGRADE_BEAST;
 }
 

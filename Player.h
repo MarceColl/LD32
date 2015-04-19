@@ -5,6 +5,7 @@
 #include "BattleManager.h"
 #include "Network.h"
 #include "Beasts.h"
+#include "Upgrade.h"
 
 class Player : public Object
 {
@@ -34,6 +35,7 @@ protected:
     };
     
     Network network;
+    std::vector<Upgrade> upgrades;
 
     /**
      * Path selected by the user
