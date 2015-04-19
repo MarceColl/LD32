@@ -2,7 +2,7 @@
 #include "Resources.h"
 
 City::City()
-    : Object(NULL, sf::Vector2f(150, 150), Resources::texturePlayer, sf::Vector2i(2, 1))
+    : Object()
 {
 }
 

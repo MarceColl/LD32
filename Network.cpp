@@ -6,6 +6,7 @@
 Network::Network(Game* g) 
     : game(g)
 {
+    cities = (City*)malloc(num_cities*sizeof(City));
     init();
 }
 

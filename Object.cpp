@@ -1,5 +1,9 @@
 #include "Object.h"
 #include "Game.h"
+#include "Resources.h"
+
+Object::Object() : tex(Resources::textureMap) {
+}
 
 Object::Object(Game* g, sf::Vector2f size, sf::Texture& tex, sf::Vector2i spriteCount) :
     game(g), size(size), tex(tex), spriteCount(spriteCount)

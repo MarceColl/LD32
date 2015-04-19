@@ -22,7 +22,7 @@ public:
     City* getCity(int id);
     int getCityByCoords(sf::Vector2f coords);
 private:
-    City cities[num_cities];
+    City* cities;
     bool adjacency_table[num_cities][num_cities];
 
     void changePath(int a, int b, bool value);
