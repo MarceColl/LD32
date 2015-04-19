@@ -16,8 +16,10 @@ public:
     virtual void mapInput();
     void draw();
     sf::Vector2f getPosition();
+    void setPosition(sf::Vector2f pos);
     sf::Vector2f getCenteredPosition();
     sf::Vector2f getSize();
+
 protected:
     sf::Vector2f position;
     sf::Vector2f size;
