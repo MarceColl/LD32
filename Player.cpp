@@ -177,7 +177,7 @@ void Player::afterCitySelection(float deltaTime) {
     }
 
     //Highlight special selected city
-    network.getCity(path[path.size()-2])->highlightSpecial();
+    network.getCity(path[path.size()-1])->highlightSpecial();
 
     state = BEFORE_CITY_SELECTION;
 }
