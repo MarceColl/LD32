@@ -22,15 +22,15 @@ void City::highlight() {
     highlighted = true;
 }
 
-void City::unhighlight() {
+void City::unHighlight() {
     highlighted = false;
 }
 
-void City::highlightspecial() {
+void City::highlightSpecial() {
     highlightedSpecial = true;
 }
 
-void City::unhighlightspecial() {
+void City::unHighlightSpecial() {
     highlightedSpecial = false;
 }
 

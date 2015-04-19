@@ -11,9 +11,9 @@ public:
     ~City();
 
     void highlight();
-    void unhighlight();
-    void highlightspecial();
-    void unhighlightspecial();
+    void unHighlight();
+    void highlightSpecial();
+    void unHighlightSpecial();
 
     bool isInside(sf::Vector2f coords);
 

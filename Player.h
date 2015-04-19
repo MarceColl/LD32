@@ -33,6 +33,17 @@ protected:
     };
     
     Network network;
+    /**
+     * When building the route, this is the last selected city
+     */
+    int lastSelectedCity;
+
+    /**
+     * When attacking, next city to attack, or -1, if all cities have been killed
+     */
+    int targetCity;
+
+    std::vector<int> currentNeighbours;
 
     Beasts beasts;
     Beasts cityBeasts;

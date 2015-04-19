@@ -82,19 +82,54 @@ void Player::upgradeBeast(float deltaTime) {
 }
 
 void Player::citiesInitialitzation(float deltaTime) {
+    network.addPath(0,1);
+    network.addPath(1,3);
+    network.addPath(3,2);
+    network.addPath(2,4);
+    network.addPath(2,5);
+    network.addPath(4,5);
+    
+    lastSelectedCity = 0;
 
+    state = BEFORE_CITY_SELECTION;
 }
 
 void Player::beforeCitySelection(float deltaTime) {
+    currentNeighbours = network.getNeighbours(lastSelectedCity);
 
+    if (currentNeighbours.size() <= 0) {
+        state = MOVE_NEXT_CITY;
+        return;
+    }
+
+    //Highlight neighbours
+    std::vector<int>::iterator it = currentNeighbours.begin(); 
+
+    for (; it != currentNeighbours.end(); it++) {
+        network.getCity(*it)->highlight();
+    }
+
+
+    state = CITY_SELECTION;
 }
 
 void Player::citySelection(float deltaTime) {
-
+    //Waiting for events to occur that will change the state
+    //They will also udpate the lastSelectedCity propierty
 }
 
 void Player::afterCitySelection(float deltaTime) {
+    //Unhighlight neighbours
+    std::vector<int>::iterator it = currentNeighbours.begin(); 
 
+    for (; it != currentNeighbours.end(); it++) {
+        network.getCity(*it)->unHighlight();
+    }
+
+    //Highlight special selected city
+    network.getCity(lastSelectedCity)->highlightSpecial();
+
+    state = BEFORE_CITY_SELECTION;
 }
 
 void Player::moveNextCity(float deltaTime) {
@@ -141,4 +176,5 @@ void Player::battleResult(float deltaTime) {
 }
 
 void Player::roundResult(float deltaTime) {
+
 }
