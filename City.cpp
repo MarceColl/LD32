@@ -47,9 +47,9 @@ void City::draw() {
 
 void City::drawPopup() {
     if (mouseOver) {
-        sf::RectangleShape rectangle(sf::Vector2f(200, 120));
+        sf::RectangleShape rectangle(sf::Vector2f(200, 100));
 
-        sf::Vector2f popupPos = limitToScreen(position - sf::Vector2f(-150, 70), sf::Vector2f(200, 120));
+        sf::Vector2f popupPos = limitToScreen(position - sf::Vector2f(-150, 70), sf::Vector2f(200, 100));
 
         rectangle.setPosition(popupPos);
         rectangle.setFillColor(sf::Color(0, 0, 0, 200));
@@ -84,7 +84,7 @@ void City::drawPopup() {
         text.setString("Health: " + std::to_string(atr.health));
         game->getWindow()->draw(text);
 
-        beasts.setPosition(popupPos + sf::Vector2f(145, 55));
+        beasts.setPosition(popupPos + sf::Vector2f(145, 50));
         beasts.draw();
     }
 }
