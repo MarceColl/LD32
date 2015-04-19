@@ -46,7 +46,7 @@ public:
 
 
 private:
-    City* cities;
+    std::vector<City> cities;
     bool adjacency_table[num_cities][num_cities];
 
     void changePath(int a, int b, bool value);

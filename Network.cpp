@@ -7,21 +7,21 @@
 Network::Network(Game* g) 
     : game(g)
 {
-    cities = (City*)malloc(num_cities*sizeof(City));
     init();
 }
 
 void Network::init() {
     Beasts beasts = Beasts(100, 100, 100, 100, 100, 100);
     for (int i = 0; i < num_cities; i++) {
-        cities[i] = City(game, i, beasts);
+        cities.push_back(City(game, i, beasts));
         for (int j = 0; j < num_cities; j++) {
             adjacency_table[i][j] = false;
         }
     }
 }
 
-Network::~Network() {}
+Network::~Network() {
+}
 
 void Network::addPath(int a, int b) {
     changePath(a, b, true);

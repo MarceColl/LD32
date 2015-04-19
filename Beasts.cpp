@@ -15,6 +15,7 @@ Beasts::Beasts(int number, int strength, int resistance, int fear, int beauty, i
     for(int i = 0; i < number; i++){
         beasts.push_back(Beast(health, &attributes));
     }
+    int i = 0;
 }
 
 Beasts::~Beasts() {}
