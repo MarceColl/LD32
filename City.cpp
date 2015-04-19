@@ -8,12 +8,14 @@ City::City()
 
 City::City(Game* g, int id, Beasts beasts) 
     : Object(g, sf::Vector2f(200, 200), Resources::textureCity, sf::Vector2i(1, 1)),
-      beasts(beasts)
+    beasts(beasts)
 {
-    position = sf::Vector2f(200 * id, 0);
+    float y = id % 2 == 1 ? 750 - 100 * id : 100 * id;
+    position = sf::Vector2f(200 * id, y);
     highlighted = false;
     highlightedSpecial = false;
     mouseOver = false;
+    c_id = id;
 }
 
 City::~City()
@@ -45,6 +47,10 @@ void City::update() {
     else {
         mouseOver = false;
     }
+}
+
+int City::getId() {
+    return c_id;
 }
 
 // Funcions top tier, algorismia pura

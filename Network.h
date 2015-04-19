@@ -46,6 +46,7 @@ public:
 
     void draw();
     void update();
+    void drawPaths();
 
 
 private:
@@ -54,6 +55,8 @@ private:
 
     void changePath(int a, int b, bool value);
     Game* game;
+
+    sf::RenderWindow* window;
 };
 
 #endif

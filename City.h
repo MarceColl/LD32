@@ -20,6 +20,8 @@ public:
     void draw();
     void update();
 
+    int getId();
+
     Beasts* getBeasts();
 
 protected:
@@ -27,6 +29,8 @@ protected:
     bool highlighted;
     bool highlightedSpecial;
     bool mouseOver;
+
+    int c_id;
 };
 
 #endif

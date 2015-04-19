@@ -5,7 +5,7 @@
 #include "Beasts.h"
 
 Network::Network(Game* g) 
-    : game(g)
+    : game(g), window(game->getWindow())
 {
     init();
 }
@@ -34,6 +34,7 @@ void Network::destroyNode(int n) {
 }
 
 void Network::draw() {
+    drawPaths();
     for (std::vector<City>::iterator it = cities.begin(); it != cities.end(); it++) {
         it->draw();
     }
@@ -42,6 +43,21 @@ void Network::draw() {
 void Network::update() {
     for (std::vector<City>::iterator it = cities.begin(); it != cities.end(); it++) {
         it->update();
+    }
+}
+
+void Network::drawPaths() {
+    for (std::vector<City>::iterator it = cities.begin(); it != cities.end(); it++) {
+        sf::Vector2f c_position = it->getCenteredPosition();
+        std::vector<int> neighbours = getNeighbours(it->getId());
+        for (std::vector<int>::iterator iit = neighbours.begin(); iit != neighbours.end(); iit++) {
+            sf::Vector2f o_position = cities[*iit].getCenteredPosition();
+            sf::Vertex line[] = {
+                sf::Vertex(c_position),
+                sf::Vertex(o_position)
+            };
+            window->draw(line, 2, sf::Lines);
+        }
     }
 }
 
