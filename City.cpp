@@ -43,6 +43,9 @@ void City::draw() {
     }
 
     Object::draw();
+
+    beasts.setPosition(position + sf::Vector2f(130, 130));
+    beasts.draw();
 }
 
 void City::drawPopup() {

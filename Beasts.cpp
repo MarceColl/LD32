@@ -7,7 +7,7 @@ Beasts::Beasts()
 }
 
 Beasts::Beasts(Game *g, int number, int strength, int resistance, int fear, int beauty, int health) :
-    Object(g, sf::Vector2f(72, 84), Resources::textureSheep, sf::Vector2i(1, 1))
+    Object(g, sf::Vector2f(40, 47), Resources::textureSheep, sf::Vector2i(1, 1))
 {
     attributes.strength = strength;
     attributes.resistance = resistance;
