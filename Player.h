@@ -18,6 +18,7 @@ public:
 protected:
     Game *game;
     void mapInput();
+    void drawUpgradeMenu();
     enum GameState {
         START_MENU,
         SELECT_BEAST,
