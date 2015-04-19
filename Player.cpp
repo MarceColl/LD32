@@ -106,6 +106,7 @@ void Player::citiesInitialitzation(float deltaTime) {
 
     path.clear();
     path.push_back(0);
+    network.getCity(0)->highlightSpecial();
     
     state = BEFORE_CITY_SELECTION;
 }
