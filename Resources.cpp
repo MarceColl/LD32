@@ -9,7 +9,7 @@ sf::Font Resources::font;
 
 void Resources::load() {
     texturePlayer.loadFromFile("assets/placeholder-player.png");
-    textureMap.loadFromFile("assets/placeholder-map.png");
+    textureMap.loadFromFile("assets/map.png");
     textureCity.loadFromFile("assets/city.png");
     textureSheep.loadFromFile("assets/sheep.png");
     textureButton.loadFromFile("assets/button.png");

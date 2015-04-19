@@ -22,6 +22,7 @@ public:
 private:
     GAMESTATE gameState;
     Player pl;
+    sf::Sprite map;
 };
 
 #endif

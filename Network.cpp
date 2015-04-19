@@ -63,7 +63,7 @@ void Network::destroyNode(int n) {
 }
 
 void Network::draw() {
-    drawPaths();
+    //drawPaths();
     for (std::vector<City>::iterator it = cities.begin(); it != cities.end(); it++) {
         it->draw();
     }
