@@ -31,20 +31,26 @@ protected:
     };
 
     Beasts beasts;
+    Beasts cityBeasts;
+
+    int numBeasts;
+    int numCityBeasts;
+
     GameState state;
 
-    void startMenu();
-    void selectBeast();
-    void upgradeBeast();
-    void citiesInitialitzation();
-    void beforeCitySelection();
-    void citySelection();
-    void afterCitySelection();
-    void movingAnimation();
-    void inBattle();
-    void battleAnimation();
-    void battleResult();
-    void gameResults();
+    void startMenu(float deltaTime);
+    void selectBeast(float deltaTime);
+    void upgradeBeast(float deltaTime);
+    void citiesInitialitzation(float deltaTime);
+    void beforeCitySelection(float deltaTime);
+    void citySelection(float deltaTime);
+    void afterCitySelection(float deltaTime);
+    void moveNextCity(float deltaTime);
+    void movingAnimation(float deltaTime);
+    void inBattle(float deltaTime);
+    void battleAnimation(float deltaTime);
+    void battleResult(float deltaTime);
+    void gameResults(float deltaTime);
 
     Network network;
 };

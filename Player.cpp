@@ -23,40 +23,43 @@ void Player::update(float deltaTime) {
     switch(state) {
 
     case START_MENU:
-        startMenu();
+        startMenu(deltaTime);
         break;
     case SELECT_BEAST:
-        selectBeast();
+        selectBeast(deltaTime);
         break;
     case UPGRADE_BEAST:
-        upgradeBeast();
+        upgradeBeast(deltaTime);
         break;
     case CITIES_INITIALITZATION:
-        citiesInitialitzation();
+        citiesInitialitzation(deltaTime);
         break;
     case BEFORE_CITY_SELECTION:
-        beforeCitySelection();
+        beforeCitySelection(deltaTime);
         break;
     case CITY_SELECTION:
-        citySelection();
+        citySelection(deltaTime);
         break;
     case AFTER_CITY_SELECTION:
-        afterCitySelection();
+        afterCitySelection(deltaTime);
+        break;
+    case MOVE_NEXT_CITY:
+        moveNextCity(deltaTime);
         break;
     case MOVING_ANIMATION:
-        movingAnimation();
+        movingAnimation(deltaTime);
         break;
     case IN_BATTLE:
-        inBattle();
+        inBattle(deltaTime);
         break;
     case BATTLE_ANIMATION:
-        battleAnimation();
+        battleAnimation(deltaTime);
         break;
     case BATTLE_RESULT:
-        battleResult();
+        battleResult(deltaTime);
         break;
     case GAME_RESULTS:
-        gameResults();
+        gameResults(deltaTime);
         break;
     default:
         break;
@@ -64,50 +67,56 @@ void Player::update(float deltaTime) {
 
 }
 
-void Player::startMenu(){
+void Player::startMenu(float deltaTime) {
 
 }
 
-void Player::selectBeast(){
+void Player::selectBeast(float deltaTime) {
+    numBeasts = 10;
+    beasts = Beasts(numBeasts, 10, 10, 10, 10, 10);
+}
+
+void Player::upgradeBeast(float deltaTime) {
 
 }
 
-void Player::upgradeBeast(){
+void Player::citiesInitialitzation(float deltaTime) {
 
 }
 
-void Player::citiesInitialitzation(){
+void Player::beforeCitySelection(float deltaTime) {
 
 }
 
-void Player::beforeCitySelection(){
+void Player::citySelection(float deltaTime) {
 
 }
 
-void Player::citySelection(){
+void Player::afterCitySelection(float deltaTime) {
 
 }
 
-void Player::afterCitySelection(){
+void Player::moveNextCity(float deltaTime) {
+    numCityBeasts = 100;
+    cityBeasts = Beasts(numCityBeasts, 100, 100, 100, 100, 100);
+}
+
+void Player::movingAnimation(float deltaTime) {
 
 }
 
-void Player::movingAnimation(){
+void Player::inBattle(float deltaTime) {
+    BattleManager::resolveBattle(&beasts, &cityBeasts);
+}
+
+void Player::battleAnimation(float deltaTime) {
+       
+}
+
+void Player::battleResult(float deltaTime) {
 
 }
 
-void Player::inBattle(){
-    //BattleManager::resolveBattle(beasts, cityBeasts);
-}
-
-void Player::battleAnimation(){
-
-}
-
-void Player::battleResult(){
-
-}
-
-void Player::gameResults(){
+void Player::gameResults(float deltaTime) {
 
 }
