@@ -3,12 +3,13 @@
 
 #include <list>
 #include "Beast.h"
+#include "Object.h"
 
-class Beasts
+class Beasts : public Object
 {
 public:
     Beasts();
-    Beasts(int number, int strength, int resistance, int fear, int beauty, int health);
+    Beasts(Game *g, int number, int strength, int resistance, int fear, int beauty, int health);
     ~Beasts();
     std::list<Beast> beasts;
     Beast::Attributes getAttributes();

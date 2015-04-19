@@ -7,7 +7,7 @@
 
 Player::Player(Game* game)
     : Object(game, sf::Vector2f(50, 50), Resources::texturePlayer, sf::Vector2i(2, 1)),
-    network(game)
+    network(game), game(game)
 {
     mapInput();
     state = SELECT_BEAST;
@@ -97,7 +97,7 @@ void Player::startMenu(float deltaTime) {
 
 void Player::selectBeast(float deltaTime) {
     numBeasts = 10;
-    beasts = Beasts(numBeasts, 10, 10, 10, 10, 10);
+    beasts = Beasts(game, numBeasts, 10, 10, 10, 10, 10);
     state = UPGRADE_BEAST;
 }
 
@@ -124,6 +124,7 @@ void Player::citiesInitialitzation(float deltaTime) {
 
     path.clear();
     path.push_back(0);
+    network.getCity(0)->highlightSpecial();
     
     state = BEFORE_CITY_SELECTION;
 }

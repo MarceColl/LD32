@@ -11,7 +11,7 @@ Network::Network(Game* g)
 }
 
 void Network::init() {
-    Beasts beasts = Beasts(100, 100, 100, 100, 100, 100);
+    Beasts beasts = Beasts(game, 100, 100, 100, 100, 100, 100);
     for (int i = 0; i < num_cities; i++) {
         cities.push_back(City(game, i, beasts));
         for (int j = 0; j < num_cities; j++) {

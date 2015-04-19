@@ -1,11 +1,13 @@
 #include "Beasts.h"
+#include "Resources.h"
 
 Beasts::Beasts()
 {
     
 }
 
-Beasts::Beasts(int number, int strength, int resistance, int fear, int beauty, int health)
+Beasts::Beasts(Game *g, int number, int strength, int resistance, int fear, int beauty, int health) :
+    Object(g, sf::Vector2f(72, 84), Resources::textureSheep, sf::Vector2i(1, 1))
 {
     attributes.strength = strength;
     attributes.resistance = resistance;
@@ -15,7 +17,6 @@ Beasts::Beasts(int number, int strength, int resistance, int fear, int beauty, i
     for(int i = 0; i < number; i++){
         beasts.push_back(Beast(health, &attributes));
     }
-    int i = 0;
 }
 
 Beasts::~Beasts() {}

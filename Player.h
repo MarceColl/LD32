@@ -15,6 +15,7 @@ public:
     void update(float deltaTime);
     void draw();
 protected:
+    Game *game;
     void mapInput();
     enum GameState {
         START_MENU,
