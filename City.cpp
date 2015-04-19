@@ -89,6 +89,82 @@ void City::drawPopup() {
     }
 }
 
+void City::drawBattlePopup(int numCityBeasts, int numPlayerBeasts, const Beast::Attributes& plattr) {
+    sf::RectangleShape rectangle(sf::Vector2f(200, 100));
+
+    sf::Vector2f popupPos = limitToScreen(position - sf::Vector2f(-150, 70), sf::Vector2f(200, 250));
+
+    rectangle.setPosition(popupPos);
+    rectangle.setFillColor(sf::Color(0, 0, 0, 200));
+    game->getWindow()->draw(rectangle);
+
+    sf::Text text;
+    text.setFont(Resources::font);
+
+    Beast::Attributes atr = beasts.getAttributes();
+
+    text.setCharacterSize(15);
+    text.setPosition(popupPos + sf::Vector2f(10, 5));
+    text.setString(name);
+    game->getWindow()->draw(text);
+    text.setCharacterSize(10);
+    text.setPosition(popupPos + sf::Vector2f(15, 25));
+    text.setString("Number of beasts: " + std::to_string(numCityBeasts));
+    game->getWindow()->draw(text);
+    text.setPosition(popupPos + sf::Vector2f(15, 35));
+    text.setString("Strength: " + std::to_string(atr.strength));
+    game->getWindow()->draw(text);
+    text.setPosition(popupPos + sf::Vector2f(15, 45));
+    text.setString("Resistance: " + std::to_string(atr.resistance));
+    game->getWindow()->draw(text);
+    text.setPosition(popupPos + sf::Vector2f(15, 55));
+    text.setString("Fear: " + std::to_string(atr.fear));
+    game->getWindow()->draw(text);
+    text.setPosition(popupPos + sf::Vector2f(15, 65));
+    text.setString("Beauty: " + std::to_string(atr.beauty));
+    game->getWindow()->draw(text);
+    text.setPosition(popupPos + sf::Vector2f(15, 75));
+    text.setString("Health: " + std::to_string(atr.health));
+    game->getWindow()->draw(text);
+
+    beasts.setPosition(popupPos + sf::Vector2f(145, 50));
+    beasts.draw();
+
+    // PLAYER POPUP
+    popupPos = limitToScreen(position - sf::Vector2f(-150, -60), sf::Vector2f(200, 100));
+
+    rectangle.setPosition(popupPos);
+    rectangle.setFillColor(sf::Color(0, 0, 0, 200));
+    game->getWindow()->draw(rectangle);
+
+    text.setCharacterSize(15);
+    text.setPosition(popupPos + sf::Vector2f(10, 5));
+    text.setString("You");
+    game->getWindow()->draw(text);
+    text.setCharacterSize(10);
+    text.setPosition(popupPos + sf::Vector2f(15, 25));
+    text.setString("Number of beasts: " + std::to_string(numPlayerBeasts));
+    game->getWindow()->draw(text);
+    text.setPosition(popupPos + sf::Vector2f(15, 35));
+    text.setString("Strength: " + std::to_string(plattr.strength));
+    game->getWindow()->draw(text);
+    text.setPosition(popupPos + sf::Vector2f(15, 45));
+    text.setString("Resistance: " + std::to_string(plattr.resistance));
+    game->getWindow()->draw(text);
+    text.setPosition(popupPos + sf::Vector2f(15, 55));
+    text.setString("Fear: " + std::to_string(plattr.fear));
+    game->getWindow()->draw(text);
+    text.setPosition(popupPos + sf::Vector2f(15, 65));
+    text.setString("Beauty: " + std::to_string(plattr.beauty));
+    game->getWindow()->draw(text);
+    text.setPosition(popupPos + sf::Vector2f(15, 75));
+    text.setString("Health: " + std::to_string(plattr.health));
+    game->getWindow()->draw(text);
+
+    beasts.setPosition(popupPos + sf::Vector2f(145, 50));
+    beasts.draw();
+}
+
 void City::destroy() {
     destroyed = true;
 }

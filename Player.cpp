@@ -78,23 +78,11 @@ void Player::draw() {
         drawUpgradeMenu();
     }
 
-    sf::Text text;
-    text.setFont(Resources::font);
-    text.setString(std::to_string(numBeasts));
-    text.setCharacterSize(24);
-    text.setPosition(sf::Vector2f(50, 50));
-
-    game->getWindow()->draw(text);
-
-
-    text.setFont(Resources::font);
-    text.setString(std::to_string(numCityBeasts));
-    text.setCharacterSize(24);
-    text.setPosition(sf::Vector2f(50, 100));
-
-    game->getWindow()->draw(text);
-
     beasts.draw();
+
+    if (state == BATTLE_ANIMATION) {
+        network.getCity(path.front())->drawBattlePopup(numCityBeasts, numBeasts, beasts.getAttributes());
+    }
 }
 
 void Player::drawUpgradeMenu() {
@@ -277,7 +265,7 @@ void Player::beforeCitySelection(float deltaTime) {
 
     if (currentNeighbours.size() <= 0) {
         pathInitialLength = path.size();
-        beasts.setPosition(network.getCity(path.front())->getCenteredPosition());
+        beasts.setCenteredPosition(network.getCity(path.front())->getCenteredPosition());
         state = MOVE_NEXT_CITY;
         return;
     }
@@ -331,10 +319,10 @@ void Player::moveNextCity(float deltaTime) {
     numCityBeasts = cityBeasts.beasts.size();
     numBeasts = beasts.beasts.size();
 
-    beastsInitialPos = beasts.getPosition();
+    beastsInitialPos = beasts.getCenteredPosition();
     beastsFinalPos = network.getCity(path.front())->getCenteredPosition();
 
-    speed = (beastsFinalPos - beastsInitialPos) / 2.f;
+    speed = (beastsFinalPos - beastsInitialPos) / 1.f;
 
     state = MOVING_ANIMATION;
 }
@@ -343,9 +331,9 @@ void Player::movingAnimation(float deltaTime) {
     beasts.setPosition(beasts.getPosition() + speed*deltaTime);
     bool finished = false;
 
-    if (speed.x <= 0 && beasts.getPosition().x <= beastsFinalPos.x)
+    if (speed.x <= 0 && beasts.getCenteredPosition().x <= beastsFinalPos.x)
         finished = true;
-    if (speed.x >= 0 && beasts.getPosition().x >= beastsFinalPos.x)
+    if (speed.x >= 0 && beasts.getCenteredPosition().x >= beastsFinalPos.x)
         finished = true;
 
     if (finished)
@@ -399,4 +387,5 @@ void Player::battleResult(float deltaTime) {
 
 void Player::roundResult(float deltaTime) {
     upgradePoints += (pathInitialLength - path.size())*10;
+    state = UPGRADE_BEAST;
 }

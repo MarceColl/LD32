@@ -42,6 +42,10 @@ void Object::setPosition(sf::Vector2f pos) {
     position = pos;
 }
 
+void Object::setCenteredPosition(sf::Vector2f pos) {
+    position = pos - size / 2.f;
+}
+
 sf::Vector2f Object::getCenteredPosition() {
     return position + size / 2.f;
 }
