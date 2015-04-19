@@ -4,6 +4,7 @@
 #include "Object.h"
 #include "BattleManager.h"
 #include "Network.h"
+#include "Beasts.h"
 
 class Player : public Object
 {
@@ -23,18 +24,22 @@ protected:
         BEFORE_CITY_SELECTION,
         CITY_SELECTION,
         AFTER_CITY_SELECTION,
+        MOVE_NEXT_CITY,
         MOVING_ANIMATION,
         IN_BATTLE,
         BATTLE_ANIMATION,
         BATTLE_RESULT,
-        GAME_RESULTS
+        ROUND_RESULT
     };
+    
+    Network network;
 
     Beasts beasts;
     Beasts cityBeasts;
-
     int numBeasts;
     int numCityBeasts;
+
+    float timer;
 
     GameState state;
 
@@ -50,9 +55,8 @@ protected:
     void inBattle(float deltaTime);
     void battleAnimation(float deltaTime);
     void battleResult(float deltaTime);
-    void gameResults(float deltaTime);
+    void roundResult(float deltaTime);
 
-    Network network;
 };
 
 #endif
