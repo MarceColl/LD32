@@ -20,6 +20,7 @@ public:
     void draw();
     void update();
     void drawPopup();
+    void destroy();
 
     int getId();
 
@@ -30,8 +31,7 @@ protected:
     bool highlighted;
     bool highlightedSpecial;
     bool mouseOver;
-
-    
+    bool destroyed;
 
     int c_id;
 };

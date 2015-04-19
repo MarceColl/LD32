@@ -13,6 +13,7 @@ City::City(Game* g, int id, Beasts beasts)
     beasts(beasts)
 {
     float y = id % 2 == 1 ? 750 - 50 * id : 50 * id;
+    destroyed = false;
     position = sf::Vector2f(100 * id, y);
     highlighted = false;
     highlightedSpecial = false;
@@ -25,7 +26,10 @@ City::~City()
 }
 
 void City::draw() {
-    if (mouseOver) {
+    if (destroyed) {
+        sprite.setColor(sf::Color::Black);
+    }
+    else if (mouseOver) {
         sprite.setColor(sf::Color(130,130,130));
     }
     else if (highlighted) {
@@ -54,6 +58,10 @@ void City::drawPopup() {
         game->getWindow()->draw(rectangle);
         game->getWindow()->draw(text);
     }
+}
+
+void City::destroy() {
+    destroyed = true;
 }
 
 void City::update() {

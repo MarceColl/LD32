@@ -3,6 +3,7 @@
 #include "Utils.h"
 #include "Network.h"
 #include <cmath>
+#include "LD32.h"
 
 Player::Player(Game* game)
     : Object(game, sf::Vector2f(50, 50), Resources::texturePlayer, sf::Vector2i(2, 1)),
@@ -10,6 +11,7 @@ Player::Player(Game* game)
 {
     mapInput();
     state = SELECT_BEAST;
+    timer = 0;
 }
 
 Player::~Player()
@@ -71,6 +73,22 @@ void Player::update(float deltaTime) {
 
 void Player::draw() {
     network.draw();
+
+    sf::Text text;
+    text.setFont(Resources::font);
+    text.setString(std::to_string(numBeasts));
+    text.setCharacterSize(24);
+    text.setPosition(sf::Vector2f(50, 50));
+
+    game->getWindow()->draw(text);
+
+
+    text.setFont(Resources::font);
+    text.setString(std::to_string(numCityBeasts));
+    text.setCharacterSize(24);
+    text.setPosition(sf::Vector2f(50, 100));
+
+    game->getWindow()->draw(text);
 }
 
 void Player::startMenu(float deltaTime) {
@@ -166,15 +184,18 @@ void Player::afterCitySelection(float deltaTime) {
 void Player::moveNextCity(float deltaTime) {
     cityBeasts = *network.getCity(path.front())->getBeasts();
     numCityBeasts = cityBeasts.beasts.size();
+
+    state = MOVING_ANIMATION;
 }
 
 void Player::movingAnimation(float deltaTime) {
-
+    state = IN_BATTLE;
 }
 
 void Player::inBattle(float deltaTime) {
     BattleManager::resolveBattle(&beasts, &cityBeasts);
     state = BATTLE_ANIMATION;
+    timer = 0;
 }
 
 /**
@@ -184,7 +205,7 @@ void Player::inBattle(float deltaTime) {
 void Player::battleAnimation(float deltaTime) {
      timer += deltaTime;
      
-     if (timer > 0.2) {
+     if (timer > 0.2f) {
          timer = 0;
          int deltaBeasts = (int)std::ceil((numBeasts - beasts.beasts.size())/7.0);
          int deltaCityBeasts = (int)std::ceil((numCityBeasts - cityBeasts.beasts.size())/7.0);
@@ -192,7 +213,7 @@ void Player::battleAnimation(float deltaTime) {
          numBeasts -= deltaBeasts;
          numCityBeasts -= deltaCityBeasts;
 
-         if(deltaBeasts == 0 && deltaCityBeasts == 0) {
+         if(deltaBeasts <= 0 && deltaCityBeasts <= 0) {
              state = BATTLE_RESULT;
          }
      }
@@ -202,8 +223,14 @@ void Player::battleResult(float deltaTime) {
     if(beasts.beasts.size() <= 0) {
         state = ROUND_RESULT;
     } else {
+        network.getCity(path.front())->destroy();
         path.erase(path.begin());
-        state = MOVE_NEXT_CITY;
+        if (path.size() > 0) {
+            state = MOVE_NEXT_CITY;
+        }
+        else {
+            state = ROUND_RESULT;
+        }
     }
 }
 
