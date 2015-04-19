@@ -138,25 +138,22 @@ void Player::selectBeast(float deltaTime) {
 }
 
 void Player::upgradeBeast(float deltaTime) {
-    //state = CITIES_INITIALITZATION;
+    state = CITIES_INITIALITZATION;
 }
 
 void Player::citiesInitialitzation(float deltaTime) {
-    network.addPath(0,1);
-    network.addPath(1,3);
-    network.addPath(3,2);
-    network.addPath(2,4);
-    network.addPath(2,5);
-    network.addPath(4,5);
-    network.addPath(2, 6);
-    network.addPath(3, 9);
-    network.addPath(6, 7);
-    network.addPath(6, 12);
+    network.addPath(0, 2);
+    network.addPath(0, 3);
+    network.addPath(3, 1);
+    network.addPath(3, 5);
+    network.addPath(3, 4);
+    network.addPath(3, 6);
+    network.addPath(2, 5);
+    network.addPath(5, 6);
+    network.addPath(5, 8);
+    network.addPath(4, 7);
+    network.addPath(6, 8);
     network.addPath(7, 8);
-    network.addPath(7, 9);
-    network.addPath(9, 10);
-    network.addPath(10, 11);
-    network.addPath(11, 12);
 
     path.clear();
     path.push_back(0);

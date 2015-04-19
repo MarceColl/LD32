@@ -16,35 +16,27 @@ void Network::init() {
     Beasts beasts = Beasts(game, attr);
 
     sf::Vector2f initialPositions[num_cities] = {
-        sf::Vector2f(750, 800),
-        sf::Vector2f(500, 750),
-        sf::Vector2f(450, 550),
-        sf::Vector2f(320, 400),
-        sf::Vector2f(900, 320),
-        sf::Vector2f(1000, 120),
-        sf::Vector2f(1300, 500),
-        sf::Vector2f(30, 30),
-        sf::Vector2f(1250, 750),
-        sf::Vector2f(30, 600),
-        sf::Vector2f(450, 70),
-        sf::Vector2f(1200, 160),
-        sf::Vector2f(650, 400),
+        sf::Vector2f(45, 750),
+        sf::Vector2f(67, 430),
+        sf::Vector2f(560, 750),
+        sf::Vector2f(500, 400),
+        sf::Vector2f(300, 150),
+        sf::Vector2f(900, 550),
+        sf::Vector2f(870, 170),
+        sf::Vector2f(1200, 70),
+        sf::Vector2f(1100, 450)
     };
 
     std::string cityNames[num_cities] = {
         "Crapstone",
         "Ugley",
         "Humansville",
-        "Crotch Crescent",
+        "Lickfork",
         "Beaver Cataclysm",
-        "Eek",
+        "Pontypridd",
         "Sheep Stallion",
         "Ho-Ho-Kus",
-        "Humptulips",
-        "Lickfork",
-        "Moon Unit",
-        "Goose",
-        "Pontypridd"
+        "Humptulips"
     };
 
     for (int i = 0; i < num_cities; i++) {
