@@ -104,7 +104,7 @@ void Player::drawUpgradeMenu() {
     sf::Text title;
     title.setFont(Resources::font);
     title.setString("Upgrades");
-    title.setCharacterSize(15);
+    title.setCharacterSize(40);
     title.setColor(sf::Color(0, 0, 0));
     title.setStyle(sf::Text::Bold);
     title.move(posRel + sf::Vector2f(width/2 - title.getLocalBounds().width/2, 0));
@@ -117,7 +117,102 @@ void Player::drawUpgradeMenu() {
     game->getWindow()->draw(beastSprite);
 
     //Stats menu
+    sf::Text text;
+    text.setFont(Resources::font);
     
+    Beast::Attributes atr = beasts.getAttributes();
+
+    sf::Vector2f attrPos = posRel + sf::Vector2f(width/2 + 30, 40);
+
+    text.setCharacterSize(30);
+    text.setPosition(attrPos + sf::Vector2f(0, 100));
+    text.setString("Attributes");
+    text.setColor(sf::Color(0, 0, 0));
+    text.setStyle(sf::Text::Bold);
+    game->getWindow()->draw(text);
+
+    text.setStyle(sf::Text::Regular);
+    text.setCharacterSize(20);
+
+    sf::Vector2f currentPos = attrPos + sf::Vector2f(0, 115);
+    sf::Vector2f step = sf::Vector2f(0, 30);
+
+
+/////// HARDODEJAT, ELIMINAR!!!/////
+    hoverUpgrade = 0;
+///// END HARDOCDE ////
+
+    currentPos += step;
+    text.setPosition(currentPos);
+    text.setString("Number of beasts: " + std::to_string(atr.number));
+    game->getWindow()->draw(text);
+    if(hoverUpgrade != -1 && upgrades[hoverUpgrade].bonus.number) {
+        text.setPosition(currentPos + sf::Vector2f(text.getLocalBounds().width + 10, 0));
+        text.setColor(sf::Color(0, 200, 0));
+        text.setString("( +" + std::to_string(upgrades[hoverUpgrade].bonus.number) + " )");
+        game->getWindow()->draw(text);
+        text.setColor(sf::Color(0, 0, 0));
+    }
+
+    currentPos += step;
+    text.setPosition(currentPos);
+    text.setString("Strength: " + std::to_string(atr.strength));
+    game->getWindow()->draw(text);
+    if(hoverUpgrade != -1 && upgrades[hoverUpgrade].bonus.strength) {
+        text.setPosition(currentPos + sf::Vector2f(text.getLocalBounds().width + 10, 0));
+        text.setColor(sf::Color(0, 200, 0));
+        text.setString("( +" + std::to_string(upgrades[hoverUpgrade].bonus.strength) + " )");
+        game->getWindow()->draw(text);
+        text.setColor(sf::Color(0, 0, 0));
+    }
+
+    currentPos += step;
+    text.setPosition(currentPos);
+    text.setString("Resistance: " + std::to_string(atr.resistance));
+    game->getWindow()->draw(text);
+    if(hoverUpgrade != -1 && upgrades[hoverUpgrade].bonus.resistance) {
+        text.setPosition(currentPos + sf::Vector2f(text.getLocalBounds().width + 10, 0));
+        text.setColor(sf::Color(0, 200, 0));
+        text.setString("( +" + std::to_string(upgrades[hoverUpgrade].bonus.resistance) + " )");
+        game->getWindow()->draw(text);
+        text.setColor(sf::Color(0, 0, 0));
+    }
+
+    currentPos += step;
+    text.setPosition(currentPos);
+    text.setString("Fear: " + std::to_string(atr.fear));
+    game->getWindow()->draw(text);
+    if(hoverUpgrade != -1 && upgrades[hoverUpgrade].bonus.fear) {
+        text.setPosition(currentPos + sf::Vector2f(text.getLocalBounds().width + 10, 0));
+        text.setColor(sf::Color(0, 200, 0));
+        text.setString("( +" + std::to_string(upgrades[hoverUpgrade].bonus.fear) + " )");
+        game->getWindow()->draw(text);
+        text.setColor(sf::Color(0, 0, 0));
+    }
+
+    currentPos += step;
+    text.setPosition(currentPos);
+    text.setString("Beauty: " + std::to_string(atr.beauty));
+    game->getWindow()->draw(text);
+    if(hoverUpgrade != -1 && upgrades[hoverUpgrade].bonus.beauty) {
+        text.setPosition(currentPos + sf::Vector2f(text.getLocalBounds().width + 10, 0));
+        text.setColor(sf::Color(0, 200, 0));
+        text.setString("( +" + std::to_string(upgrades[hoverUpgrade].bonus.beauty) + " )");
+        game->getWindow()->draw(text);
+        text.setColor(sf::Color(0, 0, 0));
+    }
+
+    currentPos += step;
+    text.setPosition(currentPos);
+    text.setString("Health: " + std::to_string(atr.health));
+    game->getWindow()->draw(text);
+    if(hoverUpgrade != -1 && upgrades[hoverUpgrade].bonus.health) {
+        text.setPosition(currentPos + sf::Vector2f(text.getLocalBounds().width + 10, 0));
+        text.setColor(sf::Color(0, 200, 0));
+        text.setString("( +" + std::to_string(upgrades[hoverUpgrade].bonus.health) + " )");
+        game->getWindow()->draw(text);
+        text.setColor(sf::Color(0, 0, 0));
+    }
 
 }
 
@@ -130,7 +225,7 @@ void Player::selectBeast(float deltaTime) {
 
     beasts = Beasts(game, attr);
 
-    upgrades.push_back(Upgrade(game, "Stamina", Beast::Attributes(1, 0, 0, 0, 0, 0), Resources::textureSheep));
+    upgrades.push_back(Upgrade(game, "Stamina", Beast::Attributes(1, 0, 1, 0, 0, 0), Resources::textureSheep));
     
     state = UPGRADE_BEAST;
 

@@ -13,6 +13,7 @@ public:
 
     std::string getName();
     bool active;
+    Beast::Attributes bonus;
 
 protected:
     std::string name;
