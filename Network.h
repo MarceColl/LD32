@@ -5,7 +5,7 @@
 #include "Beasts.h"
 #include <vector>
 
-const int num_cities = 5;
+const int num_cities = 6;
 
 class Network
 {
