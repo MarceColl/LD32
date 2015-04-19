@@ -31,8 +31,24 @@ void Network::init() {
         sf::Vector2f(650, 400),
     };
 
+    std::string cityNames[num_cities] = {
+        "Crapstone",
+        "Ugley",
+        "Humansville",
+        "Crotch Crescent",
+        "Beaver Cataclysm",
+        "Eek",
+        "Sheep Stallion",
+        "Ho-Ho-Kus",
+        "Humptulips",
+        "Lickfork",
+        "Moon Unit",
+        "Goose",
+        "Pontypridd"
+    };
+
     for (int i = 0; i < num_cities; i++) {
-        City c = City(game, i, beasts);
+        City c = City(game, i, cityNames[i], beasts);
         c.setPosition(initialPositions[i]);
         cities.push_back(c);
         for (int j = 0; j < num_cities; j++) {
