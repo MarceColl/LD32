@@ -10,6 +10,7 @@ public:
     static sf::Texture textureMap;
     static sf::Texture textureCity;
     static sf::Texture textureSheep;
+    static sf::Texture textureButton;
 
     static sf::Font font;
 };

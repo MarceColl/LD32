@@ -110,6 +110,7 @@ void Player::drawUpgradeMenu() {
     title.move(posRel + sf::Vector2f(width/2 - title.getLocalBounds().width/2, 0));
     game->getWindow()->draw(title);
 
+    //Sheep
     sf::Sprite beastSprite;
     beastSprite.setTexture(Resources::textureSheep);
     beastSprite.move(posRel + sf::Vector2f(60, 40));
@@ -212,6 +213,17 @@ void Player::drawUpgradeMenu() {
         text.setString("( +" + std::to_string(upgrades[hoverUpgrade].bonus.health) + " )");
         game->getWindow()->draw(text);
         text.setColor(sf::Color(0, 0, 0));
+    }
+
+    currentPos = posRel + sf::Vector2f(30, 400);
+    step = sf::Vector2f(0, 80);
+    for(int i = 0; i < upgrades.size(); i++) {
+        upgrades[i].setPosition(currentPos);
+        upgrades[i].draw();
+        currentPos += step;
+        if (i%4 == 0) {
+            currentPos -= 4.f*step + sf::Vector2f(100, 0);
+        }
     }
 
 }

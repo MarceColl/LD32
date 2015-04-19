@@ -14,6 +14,7 @@ public:
     std::string getName();
     bool active;
     Beast::Attributes bonus;
+    void draw();
 
 protected:
     std::string name;
