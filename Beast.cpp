@@ -28,8 +28,8 @@ int Beast::getHealth() {
 }
 
 Beast::Attributes::Attributes() {}
-Beast::Attributes::Attributes(int strength, int resistance, int fear, int beauty, int health) :
-    strength(strength), resistance(resistance), fear(fear), beauty(beauty), health(health)
+Beast::Attributes::Attributes(int number, int strength, int resistance, int fear, int beauty, int health) :
+    number(number), strength(strength), resistance(resistance), fear(fear), beauty(beauty), health(health)
 {
 
 }

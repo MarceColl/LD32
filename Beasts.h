@@ -9,7 +9,7 @@ class Beasts : public Object
 {
 public:
     Beasts();
-    Beasts(Game *g, int number, Beast::Attributes attr);
+    Beasts(Game *g, Beast::Attributes attr);
     ~Beasts();
     std::list<Beast> beasts;
     Beast::Attributes getAttributes();

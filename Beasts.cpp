@@ -1,16 +1,18 @@
 #include "Beasts.h"
 #include "Resources.h"
+#include <iostream>
 
 Beasts::Beasts()
 {
     
 }
 
-Beasts::Beasts(Game *g, int number, Beast::Attributes attr) :
+Beasts::Beasts(Game *g, Beast::Attributes attr) :
     Object(g, sf::Vector2f(40, 47), Resources::textureSheep, sf::Vector2i(1, 1)),
     attributes(attr)
 {
-    for(int i = 0; i < number; i++){
+    std::cout << attr.number << std::endl;
+    for(int i = 0; i < attr.number; i++){
         beasts.push_back(Beast(&attributes));
     }
 }

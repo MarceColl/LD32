@@ -96,10 +96,11 @@ void Player::startMenu(float deltaTime) {
 }
 
 void Player::selectBeast(float deltaTime) {
-    numBeasts = 10;
-    Beast::Attributes attr(10, 10, 10, 10, 10);
+    Beast::Attributes attr(10, 10, 10, 10, 10, 10);
 
-    beasts = Beasts(game, numBeasts, attr);
+    beasts = Beasts(game, attr);
+    //Event function
+    //Should initialize the array of upgrades
     state = UPGRADE_BEAST;
 }
 
@@ -187,6 +188,7 @@ void Player::afterCitySelection(float deltaTime) {
 void Player::moveNextCity(float deltaTime) {
     cityBeasts = *network.getCity(path.front())->getBeasts();
     numCityBeasts = cityBeasts.beasts.size();
+    numBeasts = beasts.beasts.size();
 
     state = MOVING_ANIMATION;
 }

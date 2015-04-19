@@ -7,8 +7,9 @@ public:
     class Attributes{
     public:
         Attributes();
-        Attributes(int strength, int resistance, int fear, int beauty, int health);
+        Attributes(int number, int strength, int resistance, int fear, int beauty, int health);
         ~Attributes();
+        int number;
         int strength;
         int resistance;
         int fear;

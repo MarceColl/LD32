@@ -11,14 +11,9 @@ Network::Network(Game* g)
 }
 
 void Network::init() {
-    Beast::Attributes attr;
-    attr.strength = 100;
-    attr.resistance = 100;
-    attr.fear = 100;
-    attr.beauty = 100;
-    attr.health = 100;
+    Beast::Attributes attr(100, 100, 100, 100, 100, 100);
 
-    Beasts beasts = Beasts(game, 100, attr);
+    Beasts beasts = Beasts(game, attr);
 
     sf::Vector2f initialPositions[num_cities] = {
         sf::Vector2f(750, 800),
