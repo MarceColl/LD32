@@ -16,23 +16,23 @@ void Network::init() {
     sf::Vector2f initialPositions[num_cities] = {
         sf::Vector2f(750, 800),
         sf::Vector2f(500, 750),
-        sf::Vector2f(450, 600),
-        sf::Vector2f(750, 800),
-        sf::Vector2f(750, 800),
-        sf::Vector2f(750, 800),
-        sf::Vector2f(750, 800),
-        sf::Vector2f(750, 800),
-        sf::Vector2f(750, 800),
-        sf::Vector2f(750, 800),
-        sf::Vector2f(750, 800),
-        sf::Vector2f(750, 800),
-        sf::Vector2f(750, 800),
+        sf::Vector2f(450, 550),
+        sf::Vector2f(320, 400),
+        sf::Vector2f(900, 320),
+        sf::Vector2f(1000, 120),
+        sf::Vector2f(1300, 500),
+        sf::Vector2f(30, 30),
+        sf::Vector2f(1250, 750),
+        sf::Vector2f(30, 600),
+        sf::Vector2f(450, 70),
+        sf::Vector2f(1200, 160),
+        sf::Vector2f(650, 400),
     };
 
     for (int i = 0; i < num_cities; i++) {
         City c = City(game, i, beasts);
         c.setPosition(initialPositions[i]);
-        cities.push_back();
+        cities.push_back(c);
         for (int j = 0; j < num_cities; j++) {
             adjacency_table[i][j] = false;
         }
