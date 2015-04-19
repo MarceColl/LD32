@@ -15,6 +15,7 @@ public:
     bool active;
     Beast::Attributes bonus;
     void draw();
+    sf::Texture texture;
 
 protected:
     std::string name;
