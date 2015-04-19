@@ -97,13 +97,7 @@ void Player::startMenu(float deltaTime) {
 
 void Player::selectBeast(float deltaTime) {
     numBeasts = 10;
-    Beast::Attributes attr;
-    attr.strength = 10;
-    attr.resistance = 10;
-    attr.fear = 10;
-    attr.beauty = 10;
-    attr.health = 10;
-
+    Beast::Attributes attr(10, 10, 10, 10, 10);
 
     beasts = Beasts(game, numBeasts, attr);
     state = UPGRADE_BEAST;

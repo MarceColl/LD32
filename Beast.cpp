@@ -27,3 +27,11 @@ int Beast::getHealth() {
     return health;
 }
 
+Beast::Attributes::Attributes() {}
+Beast::Attributes::Attributes(int strength, int resistance, int fear, int beauty, int health) :
+    strength(strength), resistance(resistance), fear(fear), beauty(beauty), health(health)
+{
+
+}
+
+Beast::Attributes::~Attributes() {}

@@ -4,7 +4,11 @@
 class Beast
 {
 public:
-    struct Attributes{
+    class Attributes{
+    public:
+        Attributes();
+        Attributes(int strength, int resistance, int fear, int beauty, int health);
+        ~Attributes();
         int strength;
         int resistance;
         int fear;
