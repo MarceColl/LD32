@@ -12,8 +12,27 @@ Network::Network(Game* g)
 
 void Network::init() {
     Beasts beasts = Beasts(game, 100, 100, 100, 100, 100, 100);
+
+    sf::Vector2f initialPositions[num_cities] = {
+        sf::Vector2f(750, 800),
+        sf::Vector2f(500, 750),
+        sf::Vector2f(450, 600),
+        sf::Vector2f(750, 800),
+        sf::Vector2f(750, 800),
+        sf::Vector2f(750, 800),
+        sf::Vector2f(750, 800),
+        sf::Vector2f(750, 800),
+        sf::Vector2f(750, 800),
+        sf::Vector2f(750, 800),
+        sf::Vector2f(750, 800),
+        sf::Vector2f(750, 800),
+        sf::Vector2f(750, 800),
+    };
+
     for (int i = 0; i < num_cities; i++) {
-        cities.push_back(City(game, i, beasts));
+        City c = City(game, i, beasts);
+        c.setPosition(initialPositions[i]);
+        cities.push_back();
         for (int j = 0; j < num_cities; j++) {
             adjacency_table[i][j] = false;
         }
