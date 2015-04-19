@@ -13,7 +13,7 @@ public:
     ~Player();
 
     void update(float deltaTime);
-
+    void draw();
 protected:
     void mapInput();
     enum GameState {

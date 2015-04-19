@@ -17,13 +17,16 @@ public:
     void unHighlightSpecial();
 
     bool isInside(sf::Vector2f coords);
-    
+    void draw();
+    void update();
+
     Beasts* getBeasts();
 
 protected:
     Beasts beasts;
     bool highlighted;
     bool highlightedSpecial;
+    bool mouseOver;
 };
 
 #endif

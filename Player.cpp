@@ -9,7 +9,7 @@ Player::Player(Game* game)
     network(game)
 {
     mapInput();
-    state = START_MENU;
+    state = SELECT_BEAST;
 }
 
 Player::~Player()
@@ -21,6 +21,7 @@ void Player::mapInput() {
 }
         
 void Player::update(float deltaTime) {
+    network.update();
     switch(state) {
 
     case START_MENU:
@@ -68,6 +69,10 @@ void Player::update(float deltaTime) {
 
 }
 
+void Player::draw() {
+    network.draw();
+}
+
 void Player::startMenu(float deltaTime) {
 
 }
@@ -75,10 +80,11 @@ void Player::startMenu(float deltaTime) {
 void Player::selectBeast(float deltaTime) {
     numBeasts = 10;
     beasts = Beasts(numBeasts, 10, 10, 10, 10, 10);
+    state = UPGRADE_BEAST;
 }
 
 void Player::upgradeBeast(float deltaTime) {
-
+    state = CITIES_INITIALITZATION;
 }
 
 void Player::citiesInitialitzation(float deltaTime) {
@@ -106,18 +112,33 @@ void Player::beforeCitySelection(float deltaTime) {
 
     //Highlight neighbours
     std::vector<int>::iterator it = currentNeighbours.begin(); 
-
     for (; it != currentNeighbours.end(); it++) {
         network.getCity(*it)->highlight();
     }
-
 
     state = CITY_SELECTION;
 }
 
 void Player::citySelection(float deltaTime) {
-    //Waiting for events to occur that will change the state
-    //They will also udpate the path property
+    if (inputManager->getMouseState(sf::Mouse::Button::Left) == true) {
+        sf::Vector2f mousePos = sf::Vector2f(inputManager->getMousePosition().x, inputManager->getMousePosition().y);
+        int result = network.getCityByCoords(mousePos);
+        bool inNeighbours = false;
+
+        for (std::vector<int>::iterator it = currentNeighbours.begin(); it != currentNeighbours.end(); it++) {
+            if (*it == result) {
+                inNeighbours = true;
+                break;
+            }
+        }
+
+        if (inNeighbours) {
+            network.destroyNode(path.back());
+            path.push_back(result);
+        }
+
+        state = AFTER_CITY_SELECTION;
+    }
 }
 
 void Player::afterCitySelection(float deltaTime) {
@@ -164,7 +185,7 @@ void Player::battleAnimation(float deltaTime) {
          numCityBeasts -= deltaCityBeasts;
 
          if(deltaBeasts == 0 && deltaCityBeasts == 0) {
-             state == BATTLE_RESULT;
+             state = BATTLE_RESULT;
          }
      }
 }

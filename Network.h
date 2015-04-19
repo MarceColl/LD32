@@ -44,6 +44,9 @@ public:
      */
     int getCityByCoords(sf::Vector2f coords);
 
+    void draw();
+    void update();
+
 
 private:
     std::vector<City> cities;

@@ -12,9 +12,11 @@ LD32::~LD32()
 }
 
 void LD32::update(float deltaTime) {
+    pl.update(deltaTime);
 }
 
 void LD32::draw() {
+    pl.draw();
 }
 
 void LD32::processEvents() {

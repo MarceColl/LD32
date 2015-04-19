@@ -7,15 +7,44 @@ City::City()
 }
 
 City::City(Game* g, int id, Beasts beasts) 
-    : Object(g, sf::Vector2f(150, 150), Resources::texturePlayer, sf::Vector2i(2, 1)),
+    : Object(g, sf::Vector2f(200, 200), Resources::textureCity, sf::Vector2i(1, 1)),
       beasts(beasts)
 {
-    bool highlighted = false;
-    bool highlightedSpecial = false;
+    position = sf::Vector2f(200 * id, 0);
+    highlighted = false;
+    highlightedSpecial = false;
+    mouseOver = false;
 }
 
 City::~City()
 {
+}
+
+void City::draw() {
+    if (mouseOver) {
+        sprite.setColor(sf::Color(130,130,130));
+    }
+    else if (highlighted) {
+        sprite.setColor(sf::Color::Blue);
+    }
+    else if (highlightedSpecial) {
+        sprite.setColor(sf::Color::Green);
+    }
+    else {
+        sprite.setColor(sf::Color::White);
+    }
+
+    Object::draw();
+}
+
+void City::update() {
+    sf::Vector2f mousePos = sf::Vector2f(inputManager->getMousePosition().x, inputManager->getMousePosition().y);
+    if (isInside(mousePos)) {
+        mouseOver = true;
+    }
+    else {
+        mouseOver = false;
+    }
 }
 
 // Funcions top tier, algorismia pura

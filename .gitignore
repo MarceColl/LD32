@@ -8,3 +8,4 @@ makefile
 *.o
 *.swp
 assets/placeholder-player.gif
+*.ase

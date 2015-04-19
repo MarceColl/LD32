@@ -33,6 +33,18 @@ void Network::destroyNode(int n) {
     }
 }
 
+void Network::draw() {
+    for (std::vector<City>::iterator it = cities.begin(); it != cities.end(); it++) {
+        it->draw();
+    }
+}
+
+void Network::update() {
+    for (std::vector<City>::iterator it = cities.begin(); it != cities.end(); it++) {
+        it->update();
+    }
+}
+
 void Network::changePath(int a, int b, bool value) {
     adjacency_table[a][b] = value; 
     adjacency_table[b][a] = value;

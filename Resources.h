@@ -8,6 +8,8 @@ public:
     static void load();
     static sf::Texture texturePlayer;
     static sf::Texture textureMap;
+    static sf::Texture textureCity;
+    static sf::Texture textureSheep;
 };
 
 #endif

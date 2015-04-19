@@ -29,7 +29,7 @@ void Game::run() {
 }
 
 void Game::render() {
-    window.clear();
+    window.clear(sf::Color(50, 205, 50));
     draw();
     window.display();
 }

@@ -20,7 +20,7 @@ public:
 protected:
     sf::Vector2f position;
     sf::Vector2f size;
-    sf::Texture tex;
+    sf::Texture text;
     sf::Vector2i spriteCount;
     sf::Vector2i spriteNum;
     sf::Sprite sprite;
