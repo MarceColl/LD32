@@ -74,6 +74,9 @@ void Player::update(float deltaTime) {
 
 void Player::draw() {
     network.draw();
+    if (state == UPGRADE_BEAST) {
+        drawUpgradeMenu();
+    }
 
     sf::Text text;
     text.setFont(Resources::font);
@@ -92,6 +95,42 @@ void Player::draw() {
     game->getWindow()->draw(text);
 }
 
+void Player::drawUpgradeMenu() {
+    
+    int width = 800;
+    int height = 600;
+    sf::RectangleShape menu(sf::Vector2f(width, height));
+    
+    sf::Vector2f posRel = sf::Vector2f(750-width/2, 500-height/2);
+    menu.move(posRel);
+    
+    //Menu
+    menu.setFillColor(sf::Color(200, 200, 200));
+    menu.setOutlineThickness(5);
+    menu.setOutlineColor(sf::Color(150, 150, 150));
+    game->getWindow()->draw(menu);
+
+    //Title
+    sf::Text title;
+    title.setFont(Resources::font);
+    title.setString("Upgrades");
+    title.setCharacterSize(15);
+    title.setColor(sf::Color(0, 0, 0));
+    title.setStyle(sf::Text::Bold);
+    title.move(posRel + sf::Vector2f(width/2 - title.getLocalBounds().width/2, 0));
+    game->getWindow()->draw(title);
+
+    sf::Sprite beastSprite;
+    beastSprite.setTexture(Resources::textureSheep);
+    beastSprite.move(posRel + sf::Vector2f(60, 40));
+    beastSprite.scale(sf::Vector2f(4,4));
+    game->getWindow()->draw(beastSprite);
+
+    //Stats menu
+    
+
+}
+
 void Player::startMenu(float deltaTime) {
 
 }
@@ -107,7 +146,7 @@ void Player::selectBeast(float deltaTime) {
 }
 
 void Player::upgradeBeast(float deltaTime) {
-    state = CITIES_INITIALITZATION;
+    //state = CITIES_INITIALITZATION;
 }
 
 void Player::citiesInitialitzation(float deltaTime) {
