@@ -2,6 +2,7 @@
 #include "Resources.h"
 #include "Utils.h"
 #include "Network.h"
+#include <cmath>
 
 Player::Player(Game* game)
     : Object(game, sf::Vector2f(50, 50), Resources::texturePlayer, sf::Vector2i(2, 1)),
@@ -58,8 +59,8 @@ void Player::update(float deltaTime) {
     case BATTLE_RESULT:
         battleResult(deltaTime);
         break;
-    case GAME_RESULTS:
-        gameResults(deltaTime);
+    case ROUND_RESULT:
+        roundResult(deltaTime);
         break;
     default:
         break;
@@ -107,16 +108,37 @@ void Player::movingAnimation(float deltaTime) {
 
 void Player::inBattle(float deltaTime) {
     BattleManager::resolveBattle(&beasts, &cityBeasts);
+    state = BATTLE_ANIMATION;
 }
 
+/**
+ * Decrements numBeasts and numCityBeasts until they
+ * reach the respective beasts.size()
+ */
 void Player::battleAnimation(float deltaTime) {
-       
+     timer += deltaTime;
+     
+     if (timer > 0.2) {
+         timer = 0;
+         int deltaBeasts = (int)std::ceil((numBeasts - beasts.beasts.size())/7.0);
+         int deltaCityBeasts = (int)std::ceil((numCityBeasts - cityBeasts.beasts.size())/7.0);
+         
+         numBeasts -= deltaBeasts;
+         numCityBeasts -= deltaCityBeasts;
+
+         if(deltaBeasts == 0 && deltaCityBeasts == 0) {
+             state == BATTLE_RESULT;
+         }
+     }
 }
 
 void Player::battleResult(float deltaTime) {
-
+    if(beasts.beasts.size() <= 0) {
+        state = ROUND_RESULT;
+    } else {
+        state = MOVE_NEXT_CITY;
+    }
 }
 
-void Player::gameResults(float deltaTime) {
-
+void Player::roundResult(float deltaTime) {
 }
