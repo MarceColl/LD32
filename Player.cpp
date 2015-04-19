@@ -143,7 +143,7 @@ void Player::beforeCitySelection(float deltaTime) {
 
     if (currentNeighbours.size() <= 0) {
         pathInitialLength = path.size();
-        beasts.setPosition(network.getCity(path.front())->getCenteredPosition());
+        beasts.setCenteredPosition(network.getCity(path.front())->getCenteredPosition());
         state = MOVE_NEXT_CITY;
         return;
     }
@@ -197,7 +197,7 @@ void Player::moveNextCity(float deltaTime) {
     numCityBeasts = cityBeasts.beasts.size();
     numBeasts = beasts.beasts.size();
 
-    beastsInitialPos = beasts.getPosition();
+    beastsInitialPos = beasts.getCenteredPosition();
     beastsFinalPos = network.getCity(path.front())->getCenteredPosition();
 
     speed = (beastsFinalPos - beastsInitialPos) / 2.f;
@@ -209,9 +209,9 @@ void Player::movingAnimation(float deltaTime) {
     beasts.setPosition(beasts.getPosition() + speed*deltaTime);
     bool finished = false;
 
-    if (speed.x <= 0 && beasts.getPosition().x <= beastsFinalPos.x)
+    if (speed.x <= 0 && beasts.getCenteredPosition().x <= beastsFinalPos.x)
         finished = true;
-    if (speed.x >= 0 && beasts.getPosition().x >= beastsFinalPos.x)
+    if (speed.x >= 0 && beasts.getCenteredPosition().x >= beastsFinalPos.x)
         finished = true;
 
     if (finished)
