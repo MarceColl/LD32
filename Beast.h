@@ -9,9 +9,10 @@ public:
         int resistance;
         int fear;
         int beauty;
+        int health;
     };
     
-    Beast(int health, Attributes *attr);
+    Beast(Attributes *attr);
     ~Beast();
 
     int getStrength();

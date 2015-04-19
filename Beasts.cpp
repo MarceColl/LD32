@@ -6,16 +6,12 @@ Beasts::Beasts()
     
 }
 
-Beasts::Beasts(Game *g, int number, int strength, int resistance, int fear, int beauty, int health) :
-    Object(g, sf::Vector2f(40, 47), Resources::textureSheep, sf::Vector2i(1, 1))
+Beasts::Beasts(Game *g, int number, Beast::Attributes attr) :
+    Object(g, sf::Vector2f(40, 47), Resources::textureSheep, sf::Vector2i(1, 1)),
+    attributes(attr)
 {
-    attributes.strength = strength;
-    attributes.resistance = resistance;
-    attributes.fear = fear;
-    attributes.beauty = beauty;
-
     for(int i = 0; i < number; i++){
-        beasts.push_back(Beast(health, &attributes));
+        beasts.push_back(Beast(&attributes));
     }
 }
 

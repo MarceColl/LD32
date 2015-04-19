@@ -1,7 +1,7 @@
 #include "Beast.h"
 
-Beast::Beast(int health, Attributes *attr) :
-    health(health), attributes(attr)
+Beast::Beast(Attributes *attr) :
+    health(attr->health), attributes(attr)
 {
 }
 
