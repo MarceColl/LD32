@@ -30,9 +30,7 @@ protected:
         GAME_RESULTS
     };
 
-    Network network;
     Beasts beasts;
-
     GameState state;
 
     void startMenu();
