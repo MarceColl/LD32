@@ -11,7 +11,7 @@ Network::Network(Game* g)
 }
 
 void Network::init() {
-    Beast::Attributes attr(100, 100, 100, 100, 100, 100);
+    Beast::Attributes attr(5, 30, 40, 5, 64, 100);
 
     Beasts beasts = Beasts(game, attr);
 

@@ -7,7 +7,10 @@ class BattleManager
 {
 public:
     static void resolveBattle(Beasts *beasts1, Beasts *beasts2);
+    static void round(Beasts *beasts1, Beasts *beasts2);
 
+private:
+    static void battle(Beast &beast1, Beast &beast2);
 };
 
 #endif

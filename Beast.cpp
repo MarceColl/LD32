@@ -27,6 +27,15 @@ int Beast::getHealth() {
     return health;
 }
 
+/**
+ * Retrives amount from health, and returns the remaining health
+ */
+int Beast::loseHealth(int amount) {
+    health -= amount;
+    if(health < 0) health = 0;
+    return health;
+}
+
 Beast::Attributes::Attributes() {}
 Beast::Attributes::Attributes(int number, int strength, int resistance, int fear, int beauty, int health) :
     number(number), strength(strength), resistance(resistance), fear(fear), beauty(beauty), health(health)

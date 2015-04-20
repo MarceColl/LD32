@@ -233,7 +233,7 @@ void Player::startMenu(float deltaTime) {
 }
 
 void Player::selectBeast(float deltaTime) {
-    Beast::Attributes attr(10, 10, 10, 10, 10, 10);
+    Beast::Attributes attr(10, 40, 50, 20, 14, 100);
 
     beasts = Beasts(game, attr);
 
@@ -250,7 +250,7 @@ void Player::selectBeast(float deltaTime) {
 }
 
 void Player::upgradeBeast(float deltaTime) {
-    //state = CITIES_INITIALITZATION;
+    state = CITIES_INITIALITZATION;
 }
 
 void Player::citiesInitialitzation(float deltaTime) {

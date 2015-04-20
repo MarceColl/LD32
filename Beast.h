@@ -26,6 +26,8 @@ public:
     int getHealth();
     int getBeauty();
 
+    int loseHealth(int amount);
+
 protected:
     int health;
     Attributes *attributes;
