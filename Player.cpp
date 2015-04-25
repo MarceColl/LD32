@@ -233,7 +233,7 @@ void Player::startMenu(float deltaTime) {
 }
 
 void Player::selectBeast(float deltaTime) {
-    Beast::Attributes attr(10, 40, 50, 20, 14, 100);
+    Beast::Attributes attr(30, 20, 30, 20, 14, 100);
 
     beasts = Beasts(game, attr);
 
@@ -247,6 +247,8 @@ void Player::selectBeast(float deltaTime) {
     state = UPGRADE_BEAST;
 
     beasts.setPosition(sf::Vector2f(-200, -200));
+    
+    beasts.show();
 }
 
 void Player::upgradeBeast(float deltaTime) {
@@ -355,7 +357,8 @@ void Player::movingAnimation(float deltaTime) {
 }
 
 void Player::inBattle(float deltaTime) {
-    BattleManager::resolveBattle(&beasts, &cityBeasts);
+    beasts.show();
+    BattleManager::resolveBattle(beasts, cityBeasts);
     state = BATTLE_ANIMATION;
     timer = 0;
 }

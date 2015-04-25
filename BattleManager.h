@@ -6,7 +6,7 @@
 class BattleManager
 {
 public:
-    static void resolveBattle(Beasts *beasts1, Beasts *beasts2);
+    static void resolveBattle(Beasts &beasts1, Beasts &beasts2);
     static void round(Beasts *beasts1, Beasts *beasts2);
 
 private:

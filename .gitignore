@@ -4,7 +4,6 @@
 *.filters
 SFML-2.2
 a.out
-makefile
 *.o
 *.swp
 assets/placeholder-player.gif

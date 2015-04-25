@@ -13,9 +13,10 @@ public:
     ~Beasts();
     std::list<Beast> beasts;
     Beast::Attributes getAttributes();
+    void show();
 
-private:
     Beast::Attributes attributes;
+private:
 };
 
 #endif

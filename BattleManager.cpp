@@ -3,18 +3,21 @@
 #include <cstdlib>
 #include <iostream>
 
-void BattleManager::resolveBattle(Beasts *beasts1, Beasts *beasts2) {
-    while(beasts1->beasts.size() > 0 && beasts2->beasts.size() > 0) {
-        std::cout << "Player1: " << beasts1->beasts.size() << std::endl;
-        std::cout << "Player2: " << beasts2->beasts.size() << std::endl;
-        BattleManager::battle(beasts1->beasts.front(), beasts2->beasts.front());
+void BattleManager::resolveBattle(Beasts &beasts1, Beasts &beasts2) {
+    beasts1.show();
+    beasts2.show();
+    while(beasts1.beasts.size() > 0 && beasts2.beasts.size() > 0) {
+        std::cout << "===================================================================" << std::endl;
+        std::cout << "Player1: " << beasts1.beasts.size() << std::endl;
+        std::cout << "Player2: " << beasts2.beasts.size() << std::endl;
+        BattleManager::battle(beasts1.beasts.front(), beasts2.beasts.front());
         
-        if(beasts1->beasts.front().getHealth() == 0) {
-            beasts1->beasts.erase(beasts1->beasts.begin());
+        if(beasts1.beasts.front().getHealth() == 0) {
+            beasts1.beasts.erase(beasts1.beasts.begin());
         }
 
-        if(beasts2->beasts.front().getHealth() == 0) {
-            beasts2->beasts.erase(beasts2->beasts.begin());
+        if(beasts2.beasts.front().getHealth() == 0) {
+            beasts2.beasts.erase(beasts2.beasts.begin());
         }
     }
 }
@@ -60,9 +63,17 @@ void BattleManager::battle(Beast &beast1, Beast &beast2) {
         std::cout << "Strength " << beast1.getStrength() << std::endl;
         std::cout << "Beast2 attacks: " << beast2.getStrength()*factor2 << " - Beast1 resistance, health: " << beast1.getResistance() << ", " << beast1.getHealth() << std::endl;
         std::cout << "Beast1 attacks: " << beast1.getStrength()*factor1 << " - Beast1 resistance, health: " << beast2.getResistance() << ", " << beast2.getHealth() << std::endl;
-        
-        beast1.loseHealth(beast2.getStrength()*factor2 - beast1.getResistance());
-        beast2.loseHealth(beast1.getStrength()*factor1 - beast2.getResistance());
+
+        int result;
+    
+        result = beast2.getStrength()*factor2 - beast1.getResistance();
+        result = result > 0 ? result : 0;
+        beast1.loseHealth(result);
+
+
+        result = beast1.getStrength()*factor1 - beast2.getResistance();
+        result = result > 0 ? result : 0;
+        beast2.loseHealth(result);
 
         //std::cout << factor1 << "  ,  " << factor2 << std::endl;
         std::cout << "Final Health1, Health2:  " << beast1.getHealth() << ", " << beast2.getHealth() << std::endl;

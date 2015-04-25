@@ -17,7 +17,7 @@ public:
         int health;
     };
     
-    Beast(Attributes *attr);
+    Beast(Attributes attr);
     ~Beast();
 
     int getStrength();
@@ -30,7 +30,7 @@ public:
 
 protected:
     int health;
-    Attributes *attributes;
+    Attributes attributes;
 };
 
 #endif
